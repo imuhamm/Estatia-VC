@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estatia — Dashboard</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div class="brand-name">estatia</div>
+    </div>
+    <nav class="nav">
+      <a class="nav-item active"><span class="ico">▦</span> Dashboard</a>
+      <a class="nav-item"><span class="ico">◌</span> Conversations</a>
+      <a class="nav-item"><span class="ico">⇋</span> Pipeline</a>
+      <a class="nav-item"><span class="ico">◫</span> Inventory</a>
+      <a class="nav-item"><span class="ico">☺</span> Customers</a>
+      <a class="nav-item"><span class="ico">◉</span> Bot Config</a>
+      <a class="nav-item"><span class="ico">⌥</span> Team</a>
+      <a class="nav-item"><span class="ico">◊</span> Billing &amp; Credits</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="plan-card">
+        <div class="plan-title">Growth Plan</div>
+        <div class="plan-sub">7 days left · Free trial</div>
+        <button class="btn btn-primary btn-sm">Upgrade</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="account">
+          <div class="account-name">Palm Hills Developments</div>
+          <span class="chip chip-mode">Developer mode</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" aria-label="Notifications">
+          <span class="bell">◔</span><span class="dot"></span>
+        </button>
+        <div class="avatar">MH</div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div>
+        <h1>Dashboard</h1>
+      </div>
+    </section>
+
+    <!-- 1. Summary Metrics -->
+    <section class="kpis kpis-2">
+      <div class="kpi-card">
+        <div class="kpi-label">Total conversations</div>
+        <div class="kpi-value">1,284</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Credits remaining</div>
+        <div class="kpi-value">18,420</div>
+      </div>
+    </section>
+
+    <!-- 2. Conversation Pipeline -->
+    <section class="card pipeline">
+      <div class="card-head">
+        <h2>Conversation Pipeline</h2>
+        <a class="link">Open full board →</a>
+      </div>
+      <div class="pipeline-stages">
+        <div class="stage stage-new">
+          <div class="stage-top"><span class="stage-dot"></span><span class="stage-name">New</span></div>
+          <div class="stage-count">312</div>
+        </div>
+        <div class="stage stage-active">
+          <div class="stage-top"><span class="stage-dot"></span><span class="stage-name">Active</span></div>
+          <div class="stage-count">214</div>
+        </div>
+        <div class="stage stage-engaged">
+          <div class="stage-top"><span class="stage-dot"></span><span class="stage-name">Engaged</span></div>
+          <div class="stage-count">88</div>
+        </div>
+        <div class="stage stage-inactive">
+          <div class="stage-top"><span class="stage-dot"></span><span class="stage-name">In-Active</span></div>
+          <div class="stage-count">156</div>
+        </div>
+      </div>
+      <div class="commission-row">
+        <div class="commission-card">
+          <div class="commission-label">Commission Tracked <span class="mode-tag">Broker only</span></div>
+          <div class="commission-count">42</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Credit Usage -->
+    <section class="card credit">
+      <div class="card-head">
+        <h2>Credit Usage</h2>
+      </div>
+      <div class="credit-body credit-body-simple">
+        <div class="credit-main">
+          <div class="kpi-label">Credits remaining</div>
+          <div class="credit-num">18,420</div>
+          <div class="progress">
+            <div class="progress-fill" style="width:61%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Recent Conversations -->
+    <section class="card recent">
+      <div class="card-head">
+        <h2>Recent Conversations</h2>
+        <a class="link">View all →</a>
+      </div>
+      <div class="table">
+        <div class="th">
+          <div>Customer</div>
+          <div>Stage</div>
+          <div>AI Status</div>
+          <div>Assigned</div>
+          <div>Flags</div>
+        </div>
+        <div class="tr">
+          <div class="cust"><div class="ava ava-1">LA</div><div><b>Laila Abdel</b><span class="muted">+20 10 2234 8812</span></div></div>
+          <div><span class="stage-badge badge-engaged">Engaged</span></div>
+          <div><span class="ai ai-active">● Active</span></div>
+          <div class="muted">— Bot</div>
+          <div></div>
+        </div>
+        <div class="tr">
+          <div class="cust"><div class="ava ava-2">MK</div><div><b>Mostafa Kamel</b><span class="muted">+20 11 4521 7700</span></div></div>
+          <div><span class="stage-badge badge-active">Active</span></div>
+          <div><span class="ai ai-paused">● Paused</span></div>
+          <div>Sara N.</div>
+          <div></div>
+        </div>
+        <div class="tr">
+          <div class="cust"><div class="ava ava-3">NS</div><div><b>Nadia Saleh</b><span class="muted">+20 12 8890 2233</span></div></div>
+          <div><span class="stage-badge badge-new">New</span></div>
+          <div><span class="ai ai-active">● Active</span></div>
+          <div class="muted">— Bot</div>
+          <div></div>
+        </div>
+        <div class="tr">
+          <div class="cust"><div class="ava ava-4">OH</div><div><b>Omar Hossam</b><span class="muted">+20 10 7712 5540</span></div></div>
+          <div><span class="stage-badge badge-inactive">In-Active</span></div>
+          <div><span class="ai ai-active">● Active</span></div>
+          <div class="muted">— Bot</div>
+          <div><span class="flag">⚑ Fraud</span></div>
+        </div>
+        <div class="tr">
+          <div class="cust"><div class="ava ava-5">YE</div><div><b>Youssef El-Din</b><span class="muted">+20 11 3323 9911</span></div></div>
+          <div><span class="stage-badge badge-active">Active</span></div>
+          <div><span class="ai ai-paused">● Paused</span></div>
+          <div>Ahmed R.</div>
+          <div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Alerts / Notifications -->
+    <section class="card alerts">
+      <div class="card-head">
+        <h2>Alerts &amp; Notifications</h2>
+      </div>
+      <div class="alert-grid">
+        <div class="alert">
+          <div class="alert-ico alert-blue">⇢</div>
+          <div class="alert-body">
+            <div class="alert-title">2 new chat assignments</div>
+            <div class="alert-sub">Assigned to you via chat assignment rules.</div>
+          </div>
+          <a class="link">Open</a>
+        </div>
+        <div class="alert">
+          <div class="alert-ico alert-amber">↗</div>
+          <div class="alert-body">
+            <div class="alert-title">3 conversations need human attention</div>
+            <div class="alert-sub">Sales rep trigger fired.</div>
+          </div>
+          <a class="link">Review</a>
+        </div>
+        <div class="alert">
+          <div class="alert-ico alert-progress">⏸</div>
+          <div class="alert-body">
+            <div class="alert-title">4 conversations have AI paused</div>
+            <div class="alert-sub">Awaiting reply via WhatsApp.</div>
+          </div>
+          <a class="link">Open</a>
+        </div>
+        <div class="alert">
+          <div class="alert-ico alert-red">⚑</div>
+          <div class="alert-body">
+            <div class="alert-title">1 customer flagged as fraud</div>
+            <div class="alert-sub">Auto-reply active.</div>
+          </div>
+          <a class="link">View</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">© 2026 Estatia — Subscriber Dashboard · SCR-100</footer>
+
+  </main>
+</div>
+
+</body>
+</html>
