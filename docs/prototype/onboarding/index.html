@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estatia — Onboarding</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="onboarding">
+
+  <!-- Top Bar -->
+  <header class="ob-topbar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div class="brand-name">estatia</div>
+    </div>
+    <div class="ob-topbar-actions">
+      <span class="ob-account">Palm Hills Developments</span>
+      <button class="btn btn-ghost btn-sm">Save &amp; exit</button>
+    </div>
+  </header>
+
+  <div class="ob-body">
+
+    <!-- Stepper (sidebar) -->
+    <aside class="stepper" aria-label="Onboarding progress">
+      <div class="stepper-header">
+        <div class="stepper-title">Get started</div>
+        <div class="stepper-sub">Set up your workspace in a few steps</div>
+        <div class="stepper-progress">
+          <div class="stepper-progress-bar" style="width: 16%"></div>
+        </div>
+        <div class="stepper-progress-label">Step 1 of 6</div>
+      </div>
+
+      <ol class="steps">
+        <li class="step is-active" data-step="1">
+          <span class="step-marker">1</span>
+          <div class="step-text">
+            <div class="step-title">Company profile</div>
+            <div class="step-desc">Name, logo, and contact info</div>
+          </div>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-marker">2</span>
+          <div class="step-text">
+            <div class="step-title">Connect WhatsApp</div>
+            <div class="step-desc">Link your WhatsApp Business number</div>
+          </div>
+        </li>
+        <li class="step" data-step="3">
+          <span class="step-marker">3</span>
+          <div class="step-text">
+            <div class="step-title">Import inventory</div>
+            <div class="step-desc">Projects, units, and payment plans</div>
+          </div>
+        </li>
+        <li class="step" data-step="4">
+          <span class="step-marker">4</span>
+          <div class="step-text">
+            <div class="step-title">Configure bot</div>
+            <div class="step-desc">Tone, language, and handoff rules</div>
+          </div>
+        </li>
+        <li class="step" data-step="5">
+          <span class="step-marker">5</span>
+          <div class="step-text">
+            <div class="step-title">Invite team</div>
+            <div class="step-desc">Add managers, sales reps, and viewers</div>
+          </div>
+        </li>
+        <li class="step" data-step="6">
+          <span class="step-marker">6</span>
+          <div class="step-text">
+            <div class="step-title">Go live</div>
+            <div class="step-desc">Review and launch your assistant</div>
+          </div>
+        </li>
+      </ol>
+
+      <div class="stepper-help">
+        Need help? <a href="#" class="link">Talk to us</a>
+      </div>
+    </aside>
+
+    <!-- Step content -->
+    <main class="ob-main">
+
+      <!-- STEP 1 — Company profile -->
+      <section class="ob-step is-active" data-step="1" aria-labelledby="step-1-title">
+        <header class="ob-step-header">
+          <div class="ob-step-eyebrow">Step 1 of 6</div>
+          <h1 id="step-1-title" class="ob-step-title">Tell us about your company</h1>
+          <p class="ob-step-lede">This is how customers and teammates will recognize you across Estatia.</p>
+        </header>
+
+        <div class="ob-card">
+          <form class="ob-form">
+            <div class="field">
+              <label for="company-name">Company name</label>
+              <input id="company-name" type="text" placeholder="Palm Hills Developments" />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="company-country">Country</label>
+                <select id="company-country">
+                  <option>Egypt</option>
+                  <option>Saudi Arabia</option>
+                  <option>United Arab Emirates</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="company-size">Team size</label>
+                <select id="company-size">
+                  <option>1–5</option>
+                  <option>6–20</option>
+                  <option>21–100</option>
+                  <option>100+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="company-website">Website (optional)</label>
+              <input id="company-website" type="url" placeholder="https://" />
+            </div>
+
+            <div class="field">
+              <label>Logo</label>
+              <div class="upload">
+                <div class="upload-preview" aria-hidden="true">e</div>
+                <div class="upload-text">
+                  <div>Drop an image or <a href="#" class="link">browse</a></div>
+                  <div class="muted">PNG or SVG, up to 2 MB</div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Connect WhatsApp -->
+      <section class="ob-step" data-step="2" aria-labelledby="step-2-title" hidden>
+        <header class="ob-step-header">
+          <div class="ob-step-eyebrow">Step 2 of 6</div>
+          <h1 id="step-2-title" class="ob-step-title">Connect your WhatsApp Business number</h1>
+          <p class="ob-step-lede">Estatia sends and receives messages through the WhatsApp Cloud API.</p>
+        </header>
+
+        <div class="status-strip is-disconnected">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div class="status-text">
+            <div class="status-title">Not connected</div>
+            <div class="status-sub muted">Link a WhatsApp Business account to start receiving messages.</div>
+          </div>
+          <a href="#" class="link">Help center</a>
+        </div>
+
+        <div class="ob-card">
+          <div class="ob-intro">
+            <div class="ob-intro-icon" aria-hidden="true">◎</div>
+            <div>
+              <div class="ob-intro-title">Sign in with Meta</div>
+              <div class="ob-intro-sub">We'll request the WhatsApp Business and Messaging permissions.</div>
+            </div>
+            <button class="btn btn-primary">Connect with Meta</button>
+          </div>
+
+          <details class="ob-details">
+            <summary>What you'll need</summary>
+            <ul class="requirement-list">
+              <li>
+                <span class="req-icon" aria-hidden="true">◷</span>
+                <div>
+                  <div class="req-title">A Meta Business account</div>
+                  <div class="req-sub muted">Admin access to the Business Manager that owns the number.</div>
+                </div>
+              </li>
+              <li>
+                <span class="req-icon" aria-hidden="true">☎</span>
+                <div>
+                  <div class="req-title">A phone number you own</div>
+                  <div class="req-sub muted">Not currently used on personal WhatsApp. Can receive SMS or calls for verification.</div>
+                </div>
+              </li>
+              <li>
+                <span class="req-icon" aria-hidden="true">✎</span>
+                <div>
+                  <div class="req-title">A display name</div>
+                  <div class="req-sub muted">The name customers will see. Must match your brand.</div>
+                </div>
+              </li>
+            </ul>
+          </details>
+
+          <div class="divider"><span>or enter manually</span></div>
+
+          <form class="ob-form">
+            <div class="field-row">
+              <div class="field">
+                <label for="wa-phone">Phone number</label>
+                <input id="wa-phone" type="tel" placeholder="+20 10 0000 0000" />
+              </div>
+              <div class="field">
+                <label for="wa-display">Display name</label>
+                <input id="wa-display" type="text" placeholder="Palm Hills Sales" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="wa-business-id">Business Account ID</label>
+              <input id="wa-business-id" type="text" placeholder="123456789012345" />
+            </div>
+            <div class="field">
+              <label for="wa-token">Access token</label>
+              <input id="wa-token" type="password" placeholder="EAAG..." />
+              <div class="field-hint muted">Create a permanent token in Meta Business Manager → System Users.</div>
+            </div>
+
+            <button type="button" class="btn btn-secondary btn-self-start">Test connection</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- STEP 3 — Import inventory -->
+      <section class="ob-step" data-step="3" aria-labelledby="step-3-title" hidden>
+        <header class="ob-step-header">
+          <div class="ob-step-eyebrow">Step 3 of 6</div>
+          <h1 id="step-3-title" class="ob-step-title">Import your inventory</h1>
+          <p class="ob-step-lede">Projects, units, prices, and payment plans. You can refine details later.</p>
+        </header>
+
+        <!-- CSV shortcut -->
+        <div class="csv-strip">
+          <div class="csv-icon" aria-hidden="true">⇪</div>
+          <div class="csv-text">
+            <div class="csv-title">Have a spreadsheet?</div>
+            <div class="csv-sub muted">Upload a CSV to bulk import — <a href="#" class="link">download template</a>.</div>
+          </div>
+          <button class="btn btn-secondary">Upload CSV</button>
+        </div>
+
+        <!-- Manual add form -->
+        <div class="ob-card">
+          <div class="card-section-head">
+            <h2 class="card-section-title">Add a unit</h2>
+            <p class="card-section-sub muted">Core details — you can add media and full payment plans later from Inventory.</p>
+          </div>
+
+          <form class="ob-form unit-form">
+            <div class="field-row">
+              <div class="field">
+                <label for="unit-project">Project</label>
+                <input id="unit-project" type="text" placeholder="Palm Hills West" />
+              </div>
+              <div class="field">
+                <label for="unit-type">Unit type</label>
+                <select id="unit-type">
+                  <option>Apartment</option>
+                  <option>Villa</option>
+                  <option>Townhouse</option>
+                  <option>Duplex</option>
+                  <option>Studio</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row field-row-3">
+              <div class="field">
+                <label for="unit-beds">Bedrooms</label>
+                <select id="unit-beds">
+                  <option>Studio</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="unit-area">Area (m²)</label>
+                <input id="unit-area" type="number" placeholder="180" />
+              </div>
+              <div class="field">
+                <label for="unit-delivery">Delivery</label>
+                <input id="unit-delivery" type="month" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="unit-price">Price (EGP)</label>
+                <input id="unit-price" type="number" placeholder="8,500,000" />
+              </div>
+              <div class="field">
+                <label for="unit-plan">Payment plan</label>
+                <select id="unit-plan">
+                  <option>Cash</option>
+                  <option>10% down · 7 years</option>
+                  <option>20% down · 5 years</option>
+                  <option>Custom…</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="unit-form-actions">
+              <button type="button" class="btn btn-ghost">Clear</button>
+              <button type="button" class="btn btn-primary">Add unit</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Inventory list -->
+        <div class="ob-card">
+          <div class="card-section-head card-section-head-row">
+            <div>
+              <h2 class="card-section-title">Your inventory</h2>
+              <p class="card-section-sub muted"><span id="inv-count">3</span> units added</p>
+            </div>
+            <div class="inv-filters">
+              <input type="search" class="inv-search" placeholder="Search units…" />
+            </div>
+          </div>
+
+          <div class="inv-table">
+            <div class="inv-th">
+              <div>Project</div>
+              <div>Type</div>
+              <div>Beds</div>
+              <div>Area</div>
+              <div>Price</div>
+              <div>Delivery</div>
+              <div class="inv-actions-col">Actions</div>
+            </div>
+
+            <div class="inv-tr">
+              <div class="inv-project">Palm Hills West</div>
+              <div>Apartment</div>
+              <div>3</div>
+              <div>180 m²</div>
+              <div class="inv-price">EGP 8.5M</div>
+              <div>Q4 2027</div>
+              <div class="inv-actions">
+                <button class="btn btn-ghost btn-sm">Edit</button>
+                <button class="btn btn-ghost btn-sm btn-danger">Remove</button>
+              </div>
+            </div>
+
+            <div class="inv-tr">
+              <div class="inv-project">Palm Hills West</div>
+              <div>Villa</div>
+              <div>4</div>
+              <div>320 m²</div>
+              <div class="inv-price">EGP 22.0M</div>
+              <div>Q2 2028</div>
+              <div class="inv-actions">
+                <button class="btn btn-ghost btn-sm">Edit</button>
+                <button class="btn btn-ghost btn-sm btn-danger">Remove</button>
+              </div>
+            </div>
+
+            <div class="inv-tr">
+              <div class="inv-project">Badya</div>
+              <div>Townhouse</div>
+              <div>3</div>
+              <div>240 m²</div>
+              <div class="inv-price">EGP 14.2M</div>
+              <div>Q1 2027</div>
+              <div class="inv-actions">
+                <button class="btn btn-ghost btn-sm">Edit</button>
+                <button class="btn btn-ghost btn-sm btn-danger">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4 — Configure bot -->
+      <section class="ob-step" data-step="4" aria-labelledby="step-4-title" hidden>
+        <header class="ob-step-header">
+          <div class="ob-step-eyebrow">Step 4 of 6</div>
+          <h1 id="step-4-title" class="ob-step-title">Configure your AI assistant</h1>
+          <p class="ob-step-lede">Set the voice and language. You can fine-tune handoff rules later.</p>
+        </header>
+
+        <div class="ob-card">
+          <form class="ob-form">
+            <div class="field">
+              <label>Primary language</label>
+              <div class="chip-group">
+                <label class="chip"><input type="radio" name="lang" checked /> Arabic</label>
+                <label class="chip"><input type="radio" name="lang" /> English</label>
+                <label class="chip"><input type="radio" name="lang" /> Bilingual</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Tone</label>
+              <div class="chip-group">
+                <label class="chip"><input type="radio" name="tone" /> Formal</label>
+                <label class="chip"><input type="radio" name="tone" checked /> Friendly</label>
+                <label class="chip"><input type="radio" name="tone" /> Concise</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="bot-name">Assistant name</label>
+              <input id="bot-name" type="text" placeholder="Sara" />
+            </div>
+
+            <div class="field">
+              <label>Handoff to human when</label>
+              <label class="check"><input type="checkbox" checked /> Customer asks to speak to a person</label>
+              <label class="check"><input type="checkbox" checked /> Lead is qualified (budget + intent)</label>
+              <label class="check"><input type="checkbox" /> Conversation exceeds 10 turns</label>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Invite team -->
+      <section class="ob-step" data-step="5" aria-labelledby="step-5-title" hidden>
+        <header class="ob-step-header">
+          <div class="ob-step-eyebrow">Step 5 of 6</div>
+          <h1 id="step-5-title" class="ob-step-title">Invite your team</h1>
+          <p class="ob-step-lede">Assign roles now — you can change them anytime.</p>
+        </header>
+
+        <div class="ob-card">
+          <div class="invite-row">
+            <input type="email" placeholder="teammate@company.com" />
+            <select>
+              <option>Sales Rep</option>
+              <option>Manager</option>
+              <option>Admin</option>
+              <option>Viewer</option>
+            </select>
+            <button class="btn btn-secondary">Add</button>
+          </div>
+
+          <ul class="invite-list">
+            <li class="invite-item">
+              <div class="invite-avatar" aria-hidden="true">M</div>
+              <div class="invite-info">
+                <div class="invite-name">Mariam Adel</div>
+                <div class="invite-email muted">mariam@palmhills.com</div>
+              </div>
+              <div class="invite-role">Manager</div>
+              <button class="btn btn-ghost btn-sm">Remove</button>
+            </li>
+            <li class="invite-item">
+              <div class="invite-avatar" aria-hidden="true">O</div>
+              <div class="invite-info">
+                <div class="invite-name">Omar Hassan</div>
+                <div class="invite-email muted">omar@palmhills.com</div>
+              </div>
+              <div class="invite-role">Sales Rep</div>
+              <button class="btn btn-ghost btn-sm">Remove</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Go live -->
+      <section class="ob-step" data-step="6" aria-labelledby="step-6-title" hidden>
+        <header class="ob-step-header">
+          <div class="ob-step-eyebrow">Step 6 of 6</div>
+          <h1 id="step-6-title" class="ob-step-title">You're ready to go live</h1>
+          <p class="ob-step-lede">Review your setup. You can change any of this from Settings later.</p>
+        </header>
+
+        <div class="ob-card">
+          <ul class="review-list">
+            <li class="review-item is-done">
+              <span class="review-icon" aria-hidden="true">✓</span>
+              <div>
+                <div class="review-title">Company profile</div>
+                <div class="review-sub muted">Palm Hills Developments · Egypt</div>
+              </div>
+              <a href="#" class="link">Edit</a>
+            </li>
+            <li class="review-item is-done">
+              <span class="review-icon" aria-hidden="true">✓</span>
+              <div>
+                <div class="review-title">WhatsApp connected</div>
+                <div class="review-sub muted">+20 10 0000 0000</div>
+              </div>
+              <a href="#" class="link">Edit</a>
+            </li>
+            <li class="review-item is-done">
+              <span class="review-icon" aria-hidden="true">✓</span>
+              <div>
+                <div class="review-title">Inventory</div>
+                <div class="review-sub muted">2 projects · 48 units</div>
+              </div>
+              <a href="#" class="link">Edit</a>
+            </li>
+            <li class="review-item is-done">
+              <span class="review-icon" aria-hidden="true">✓</span>
+              <div>
+                <div class="review-title">AI assistant</div>
+                <div class="review-sub muted">Sara · Arabic · Friendly</div>
+              </div>
+              <a href="#" class="link">Edit</a>
+            </li>
+            <li class="review-item is-done">
+              <span class="review-icon" aria-hidden="true">✓</span>
+              <div>
+                <div class="review-title">Team</div>
+                <div class="review-sub muted">2 members invited</div>
+              </div>
+              <a href="#" class="link">Edit</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Footer nav -->
+      <footer class="ob-footer">
+        <button class="btn btn-ghost" data-action="back">Back</button>
+        <div class="ob-footer-right">
+          <button class="btn btn-ghost" data-action="skip">Skip</button>
+          <button class="btn btn-primary" data-action="next">Continue</button>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
