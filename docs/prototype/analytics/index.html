@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estatia — Analytics</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar (reused from dashboard) -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div class="brand-name">estatia</div>
+    </div>
+    <nav class="nav">
+      <a class="nav-item"><span class="ico">▦</span> Dashboard</a>
+      <a class="nav-item"><span class="ico">◌</span> Conversations</a>
+      <a class="nav-item"><span class="ico">⇋</span> Pipeline</a>
+      <a class="nav-item"><span class="ico">◫</span> Inventory</a>
+      <a class="nav-item"><span class="ico">☺</span> Customers</a>
+      <a class="nav-item active"><span class="ico">◎</span> Analytics</a>
+      <a class="nav-item"><span class="ico">◉</span> Bot Config</a>
+      <a class="nav-item"><span class="ico">⌥</span> Team</a>
+      <a class="nav-item"><span class="ico">◊</span> Billing &amp; Credits</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="plan-card">
+        <div class="plan-title">Growth Plan</div>
+        <div class="plan-sub">7 days left · Free trial</div>
+        <button class="btn btn-primary btn-sm">Upgrade</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="account">
+          <div class="account-name" data-name-developer="Palm Hills Developments" data-name-broker="Nile Realty Brokers">Palm Hills Developments</div>
+          <div class="mode-toggle" role="tablist" aria-label="Account mode">
+            <button class="mode-btn is-active" data-mode="developer" role="tab" aria-selected="true">Developer</button>
+            <button class="mode-btn" data-mode="broker" role="tab" aria-selected="false">Broker</button>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="search"><input type="search" placeholder="Search…" /></div>
+        <button class="icon-btn" aria-label="Notifications">◔<span class="dot"></span></button>
+        <div class="avatar">MA</div>
+      </div>
+    </header>
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div>
+        <h1>Analytics</h1>
+        <div class="subtitle">Demand, conversations, funnel, and bot performance.</div>
+      </div>
+      <div class="page-header-actions">
+        <button class="btn btn-secondary">Export Excel</button>
+      </div>
+    </div>
+
+    <!-- Section tabs -->
+    <nav class="section-tabs" aria-label="Analytics sections">
+      <a class="section-tab is-active" data-tab="overview">Overview</a>
+      <a class="section-tab" data-tab="demand">Demand</a>
+      <a class="section-tab" data-tab="conversations">Conversations</a>
+      <a class="section-tab" data-tab="funnel">Funnel</a>
+      <a class="section-tab" data-tab="bot">Bot performance</a>
+    </nav>
+
+    <!-- Global filter bar -->
+    <div class="filter-bar" role="region" aria-label="Filters">
+      <div class="filter-group filter-range">
+        <button class="range-btn">7D</button>
+        <button class="range-btn is-active">30D</button>
+        <button class="range-btn">90D</button>
+        <button class="range-btn">12M</button>
+        <button class="range-btn range-custom">Apr 1 – Apr 20, 2026 ▾</button>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-toggle">
+          <input type="checkbox" checked />
+          <span>Compare to previous period</span>
+        </label>
+      </div>
+
+      <div class="filter-group filter-selects">
+        <select class="filter-select">
+          <option>All areas</option>
+          <option>6th of October</option>
+          <option>New Cairo</option>
+          <option>North Coast</option>
+        </select>
+        <select class="filter-select">
+          <option>All projects</option>
+          <option>Palm Hills West</option>
+          <option>Badya</option>
+        </select>
+        <select class="filter-select">
+          <option>All property types</option>
+          <option>Apartment</option>
+          <option>Villa</option>
+          <option>Townhouse</option>
+        </select>
+      </div>
+
+      <div class="filter-group filter-tail">
+        <span class="filter-meta muted">Updated 12 min ago</span>
+        <button class="btn btn-ghost btn-sm">Reset</button>
+      </div>
+    </div>
+
+    <!-- Content region (placeholder — widgets come in step 2+) -->
+    <section class="analytics-content" data-active-tab="overview">
+
+      <!-- Overview placeholder -->
+      <div class="tab-panel is-active" data-panel="overview">
+        <div class="placeholder-strip">
+          <div class="placeholder-kpi" aria-hidden="true"></div>
+          <div class="placeholder-kpi" aria-hidden="true"></div>
+          <div class="placeholder-kpi" aria-hidden="true"></div>
+          <div class="placeholder-kpi" aria-hidden="true"></div>
+          <div class="placeholder-kpi" aria-hidden="true"></div>
+        </div>
+        <div class="placeholder-grid">
+          <div class="placeholder-widget placeholder-widget-lg" aria-hidden="true">
+            <div class="placeholder-widget-head"></div>
+            <div class="placeholder-widget-body"></div>
+          </div>
+          <div class="placeholder-widget" aria-hidden="true">
+            <div class="placeholder-widget-head"></div>
+            <div class="placeholder-widget-body"></div>
+          </div>
+          <div class="placeholder-widget" aria-hidden="true">
+            <div class="placeholder-widget-head"></div>
+            <div class="placeholder-widget-body"></div>
+          </div>
+          <div class="placeholder-widget" aria-hidden="true">
+            <div class="placeholder-widget-head"></div>
+            <div class="placeholder-widget-body"></div>
+          </div>
+        </div>
+        <div class="scaffold-note">
+          <span class="scaffold-note-icon" aria-hidden="true">◷</span>
+          <div>
+            <div class="scaffold-note-title">Widgets coming next</div>
+            <div class="scaffold-note-sub muted">Overview will synthesize KPIs and highlights from Demand, Conversations, and Bot performance.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEMAND — Subscriber Analytics: Demand Intelligence (SCR-160) -->
+      <div class="tab-panel" data-panel="demand" hidden>
+
+        <!-- Section intro -->
+        <div class="section-intro">
+          <h2 class="section-heading">Demand Intelligence</h2>
+          <p class="section-sub muted">What customers are most frequently asking for across areas, projects, and preferences.</p>
+        </div>
+
+        <!-- ── Top Signals ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Top Signals</h3>
+          <div class="kpi-strip kpi-strip-5">
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top area</div>
+              <div class="kpi-value">New Cairo</div>
+              <div class="kpi-delta good">412 inquiries · 22%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top project</div>
+              <div class="kpi-value">Palm Hills West</div>
+              <div class="kpi-delta good">218 inquiries · 12%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top property type</div>
+              <div class="kpi-value">Apartment</div>
+              <div class="kpi-delta good">1,257 inquiries · 68%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top budget range</div>
+              <div class="kpi-value">2–5M EGP</div>
+              <div class="kpi-delta good">757 inquiries · 41%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top finishing</div>
+              <div class="kpi-value">Fully Finished</div>
+              <div class="kpi-delta good">776 inquiries · 42%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Demand Distribution (Area + Projects) ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Demand Distribution</h3>
+          <div class="widget-grid grid-2-1">
+            <!-- A1 — horizontal ranked bars -->
+            <article class="widget" data-metric="A1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A1</span>
+                  <h3 class="widget-title">Inquiry volume by area</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-mvp">MVP</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list">
+                  <li><span class="hbar-label">New Cairo</span><div class="hbar"><span class="hbar-fill" style="width:100%"></span></div><span class="hbar-value">412</span></li>
+                  <li><span class="hbar-label">6th of October</span><div class="hbar"><span class="hbar-fill" style="width:82%"></span></div><span class="hbar-value">339</span></li>
+                  <li><span class="hbar-label">Sheikh Zayed</span><div class="hbar"><span class="hbar-fill" style="width:67%"></span></div><span class="hbar-value">276</span></li>
+                  <li><span class="hbar-label">North Coast</span><div class="hbar"><span class="hbar-fill" style="width:55%"></span></div><span class="hbar-value">227</span></li>
+                  <li><span class="hbar-label">Mostakbal City</span><div class="hbar"><span class="hbar-fill" style="width:43%"></span></div><span class="hbar-value">177</span></li>
+                  <li><span class="hbar-label">New Admin. Capital</span><div class="hbar"><span class="hbar-fill" style="width:38%"></span></div><span class="hbar-value">156</span></li>
+                  <li><span class="hbar-label">Ain Sokhna</span><div class="hbar"><span class="hbar-fill" style="width:26%"></span></div><span class="hbar-value">107</span></li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Click a bar to filter the Conversations list by area.</footer>
+            </article>
+
+            <!-- A2 — lollipop chart (Top projects) -->
+            <article class="widget" data-metric="A2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A2</span>
+                  <h3 class="widget-title">Top projects</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="lollipop-list">
+                  <li><span class="lolli-label">Palm Hills West</span><div class="lolli-track"><span class="lolli-line" style="width:100%"></span><span class="lolli-dot" style="left:100%"></span></div><span class="lolli-value">218</span></li>
+                  <li><span class="lolli-label">Badya</span><div class="lolli-track"><span class="lolli-line" style="width:76%"></span><span class="lolli-dot" style="left:76%"></span></div><span class="lolli-value">165</span></li>
+                  <li><span class="lolli-label">Mountain View</span><div class="lolli-track"><span class="lolli-line" style="width:58%"></span><span class="lolli-dot" style="left:58%"></span></div><span class="lolli-value">127</span></li>
+                  <li><span class="lolli-label">Hyde Park</span><div class="lolli-track"><span class="lolli-line" style="width:44%"></span><span class="lolli-dot" style="left:44%"></span></div><span class="lolli-value">96</span></li>
+                  <li><span class="lolli-label">Marassi</span><div class="lolli-track"><span class="lolli-line" style="width:33%"></span><span class="lolli-dot" style="left:33%"></span></div><span class="lolli-value">71</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div><!-- /.analytics-section Demand Distribution -->
+
+        <!-- ── Property Breakdown (Type + Bedrooms + Budget) ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Property Breakdown</h3>
+          <div class="widget-grid grid-3">
+            <!-- A3 — donut chart (Property type) -->
+            <article class="widget" data-metric="A3">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A3</span>
+                  <h3 class="widget-title">Property type</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body donut-body donut-body-compact">
+                <div class="donut" style="--a:68;--b:84;--c:94;--d:98;">
+                  <div class="donut-center">
+                    <div class="donut-total">1,847</div>
+                    <div class="donut-label muted">inquiries</div>
+                  </div>
+                </div>
+                <ul class="donut-legend">
+                  <li><span class="sw sw-p1"></span>Apartment<b>68%</b></li>
+                  <li><span class="sw sw-p2"></span>Villa<b>16%</b></li>
+                  <li><span class="sw sw-p3"></span>Townhouse<b>10%</b></li>
+                  <li><span class="sw sw-p4"></span>Duplex<b>4%</b></li>
+                  <li><span class="sw sw-p5"></span>Studio<b>2%</b></li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- A4 — vertical column chart (Bedrooms) -->
+            <article class="widget" data-metric="A4">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A4</span>
+                  <h3 class="widget-title">Bedrooms</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="col-chart" role="img" aria-label="Bedroom distribution">
+                  <div class="col-col"><span class="col-val">2%</span><span class="col-bar" style="height:5%"></span><span class="col-label">Studio</span></div>
+                  <div class="col-col"><span class="col-val">9%</span><span class="col-bar" style="height:24%"></span><span class="col-label">1 BR</span></div>
+                  <div class="col-col"><span class="col-val">29%</span><span class="col-bar" style="height:76%"></span><span class="col-label">2 BR</span></div>
+                  <div class="col-col is-peak"><span class="col-val">38%</span><span class="col-bar" style="height:100%"></span><span class="col-label">3 BR</span></div>
+                  <div class="col-col"><span class="col-val">18%</span><span class="col-bar" style="height:47%"></span><span class="col-label">4 BR</span></div>
+                  <div class="col-col"><span class="col-val">4%</span><span class="col-bar" style="height:11%"></span><span class="col-label">5+</span></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- A5 — 100% stacked segmented bar (Budget range) -->
+            <article class="widget" data-metric="A5">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A5</span>
+                  <h3 class="widget-title">Budget range distribution</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body stacked-body">
+                <div class="stacked-scale">
+                  <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                </div>
+                <div class="stacked-bar">
+                  <span class="stacked-seg seg-1" style="width:41%">41%</span>
+                  <span class="stacked-seg seg-2" style="width:32%">32%</span>
+                  <span class="stacked-seg seg-3" style="width:16%">16%</span>
+                  <span class="stacked-seg seg-4" style="width:11%">11%</span>
+                </div>
+                <ul class="stacked-legend">
+                  <li><span class="sw sw-s1"></span>2–5M EGP<b>757</b></li>
+                  <li><span class="sw sw-s2"></span>5–10M EGP<b>591</b></li>
+                  <li><span class="sw sw-s3"></span>10M+ EGP<b>296</b></li>
+                  <li><span class="sw sw-s4"></span>&lt;2M EGP<b>203</b></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div><!-- /.analytics-section Property Breakdown -->
+
+        <!-- ── Customer Preferences ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Customer Preferences</h3>
+          <div class="widget-grid grid-2">
+            <!-- A7 — Finishing preference (rings) -->
+            <article class="widget" data-metric="A7">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A7</span>
+                  <h3 class="widget-title">Finishing preference</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body donut-body">
+                <div class="donut" style="--a:42;--b:70;--c:82;--d:94;">
+                  <div class="donut-center">
+                    <div class="donut-total">1,847</div>
+                    <div class="donut-label muted">inquiries</div>
+                  </div>
+                </div>
+                <ul class="donut-legend">
+                  <li><span class="sw sw-p1"></span>Fully Finished<b>42%</b></li>
+                  <li><span class="sw sw-p2"></span>Semi-Finished<b>28%</b></li>
+                  <li><span class="sw sw-p3"></span>Furnished<b>12%</b></li>
+                  <li><span class="sw sw-p4"></span>Flexi-Finished<b>12%</b></li>
+                  <li><span class="sw sw-p5"></span>Not Finished<b>6%</b></li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- A6 — Delivery timeline preference (horizontal bar chart) -->
+            <article class="widget" data-metric="A6">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A6</span>
+                  <h3 class="widget-title">Delivery timeline preference</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list hbar-list-compact">
+                  <li>
+                    <span class="hbar-label">Ready / Immediate</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:46%"></span></div>
+                    <span class="hbar-value">849</span>
+                  </li>
+                  <li>
+                    <span class="hbar-label">1–2 years</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:100%"></span></div>
+                    <span class="hbar-value">647</span>
+                  </li>
+                  <li>
+                    <span class="hbar-label">3–5 years</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:40%"></span></div>
+                    <span class="hbar-value">258</span>
+                  </li>
+                  <li>
+                    <span class="hbar-label">5+ years</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:14%"></span></div>
+                    <span class="hbar-value">93</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Share of inquiries by requested handover window.</footer>
+            </article>
+          </div>
+        </div><!-- /.analytics-section Customer Preferences -->
+
+        <!-- ── Broker-only: Top Developers by Inquiry ── -->
+        <div class="analytics-section broker-only" data-mode="broker" hidden>
+          <div class="section-title-row">
+            <h3 class="section-title">Top Developers by Inquiry</h3>
+            <span class="phase-pill phase-broker">Broker mode</span>
+          </div>
+          <div class="widget-grid">
+            <article class="widget" data-metric="A8">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A8</span>
+                  <h3 class="widget-title">Top developers</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-broker">Broker</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list">
+                  <li><span class="hbar-label">Palm Hills Developments</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:100%"></span></div><span class="hbar-value">287</span></li>
+                  <li><span class="hbar-label">SODIC</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:78%"></span></div><span class="hbar-value">224</span></li>
+                  <li><span class="hbar-label">Mountain View</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:64%"></span></div><span class="hbar-value">183</span></li>
+                  <li><span class="hbar-label">Emaar Misr</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:52%"></span></div><span class="hbar-value">149</span></li>
+                  <li><span class="hbar-label">Hyde Park</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:41%"></span></div><span class="hbar-value">117</span></li>
+                  <li><span class="hbar-label">Tatweer Misr</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:33%"></span></div><span class="hbar-value">95</span></li>
+                  <li><span class="hbar-label">Orascom Development</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:24%"></span></div><span class="hbar-value">68</span></li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Derived from this broker's own conversations only.</footer>
+            </article>
+          </div>
+        </div><!-- /.broker-only -->
+
+      </div>
+
+      <div class="tab-panel" data-panel="conversations" hidden>
+        <div class="scaffold-note">
+          <span class="scaffold-note-icon" aria-hidden="true">◷</span>
+          <div>
+            <div class="scaffold-note-title">Conversations — 10 widgets planned</div>
+            <div class="scaffold-note-sub muted">B1–B10. Volume, timing, language, and bot containment.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="funnel" hidden>
+        <div class="scaffold-note">
+          <span class="scaffold-note-icon" aria-hidden="true">◷</span>
+          <div>
+            <div class="scaffold-note-title">Conversion Funnel — 8 widgets planned</div>
+            <div class="scaffold-note-sub muted">C1–C8. Pipeline stage counts, transition rates, and time-in-stage.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="bot" hidden>
+        <div class="scaffold-note">
+          <span class="scaffold-note-icon" aria-hidden="true">◷</span>
+          <div>
+            <div class="scaffold-note-title">Bot Performance — 6 widgets planned</div>
+            <div class="scaffold-note-sub muted">D1–D6. Credits, cost efficiency, fallback rate, and projections.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
