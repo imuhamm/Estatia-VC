@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estatia — Conversations</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar (reused pattern) -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div class="brand-name">estatia</div>
+    </div>
+    <nav class="nav">
+      <a class="nav-item" href="../dashboard/"><span class="ico">▦</span> Dashboard</a>
+      <a class="nav-item active" href="../conversations/"><span class="ico">◌</span> Conversations</a>
+      <a class="nav-item"><span class="ico">⇋</span> Pipeline</a>
+      <a class="nav-item"><span class="ico">◫</span> Inventory</a>
+      <a class="nav-item" href="../customers/"><span class="ico">☺</span> Customers</a>
+      <a class="nav-item" href="../analytics/"><span class="ico">◎</span> Analytics</a>
+      <a class="nav-item"><span class="ico">◉</span> Bot Config</a>
+      <a class="nav-item"><span class="ico">⌥</span> Team</a>
+      <a class="nav-item"><span class="ico">◊</span> Billing &amp; Credits</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="plan-card">
+        <div class="plan-title">Growth Plan</div>
+        <div class="plan-sub">7 days left · Free trial</div>
+        <button class="btn btn-primary btn-sm">Upgrade</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="account">
+          <div class="account-name" data-name-developer="Palm Hills Developments" data-name-broker="Nile Realty Brokers">Palm Hills Developments</div>
+          <div class="mode-toggle" role="tablist" aria-label="Account mode">
+            <button class="mode-btn is-active" data-mode="developer" role="tab" aria-selected="true">Developer</button>
+            <button class="mode-btn" data-mode="broker" role="tab" aria-selected="false">Broker</button>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="search"><input type="search" placeholder="Search…" /></div>
+        <button class="icon-btn" aria-label="Notifications">◔<span class="dot"></span></button>
+        <div class="avatar">MA</div>
+      </div>
+    </header>
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div>
+        <h1>Conversations</h1>
+        <div class="subtitle">All WhatsApp threads across your team. Click a row to open the transcript.</div>
+      </div>
+      <div class="page-header-actions">
+        <button class="btn btn-ghost btn-sm">Export CSV</button>
+        <button class="btn btn-secondary btn-sm">Saved views ▾</button>
+      </div>
+    </div>
+
+    <!-- Summary strip — two clearly labelled groups -->
+    <section class="conv-summary-wrap">
+
+      <!-- Group 1: Pipeline stages (5 cards, mutually exclusive per conversation) -->
+      <div class="summary-group" data-group="stage">
+        <div class="summary-group-head">
+          <span class="summary-group-label">Pipeline stage</span>
+          <span class="summary-group-hint muted">Where each conversation sits in the customer journey</span>
+        </div>
+        <div class="conv-summary stage-summary">
+          <button class="summary-card is-active" data-quickfilter="stage:all">
+            <div class="summary-label">All conversations</div>
+            <div class="summary-value">3,214</div>
+            <div class="summary-sub muted">this period</div>
+          </button>
+          <button class="summary-card" data-quickfilter="stage:new">
+            <div class="summary-label"><span class="stage-dot stage-dot-new"></span>New</div>
+            <div class="summary-value">546</div>
+            <div class="summary-sub muted">first contact · no AI reply yet</div>
+          </button>
+          <button class="summary-card" data-quickfilter="stage:active">
+            <div class="summary-label"><span class="stage-dot stage-dot-active"></span>Active</div>
+            <div class="summary-value">900</div>
+            <div class="summary-sub muted">exchanging messages now</div>
+          </button>
+          <button class="summary-card" data-quickfilter="stage:engaged">
+            <div class="summary-label"><span class="stage-dot stage-dot-engaged"></span>Engaged</div>
+            <div class="summary-value">1,093</div>
+            <div class="summary-sub muted">trigger hit · ready for sales</div>
+          </button>
+          <button class="summary-card" data-quickfilter="stage:inactive">
+            <div class="summary-label"><span class="stage-dot stage-dot-inactive"></span>In-Active</div>
+            <div class="summary-value">675</div>
+            <div class="summary-sub muted">14+ days silent</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Group 2: Operational state (NOT pipeline stages) -->
+      <div class="summary-group" data-group="ops">
+        <div class="summary-group-head">
+          <span class="summary-group-label">Needs attention</span>
+          <span class="summary-group-hint muted">Operational state — independent of pipeline stage</span>
+        </div>
+        <div class="conv-summary ops-summary">
+          <button class="summary-card ops-card" data-quickfilter="ops:handoff">
+            <div class="summary-label"><span class="ops-ico">◷</span>Handoff needed</div>
+            <div class="summary-value">24</div>
+            <div class="summary-sub muted warn-text">trigger fired · waiting on agent</div>
+          </button>
+          <button class="summary-card ops-card" data-quickfilter="ops:paused">
+            <div class="summary-label"><span class="pause-ico">❚❚</span>AI paused</div>
+            <div class="summary-value">12</div>
+            <div class="summary-sub muted">human replying via WhatsApp</div>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Filter bar -->
+    <div class="conv-filter-bar" role="region" aria-label="Filters">
+
+      <div class="filter-group filter-search">
+        <span class="field-ico" aria-hidden="true">⌕</span>
+        <input type="search" class="filter-search-input" placeholder="Search customer, phone, tag, unit code, or message…" />
+      </div>
+
+      <div class="filter-group filter-selects">
+        <!-- Pipeline stage — the 4 canonical stages only -->
+        <select class="filter-select" aria-label="Pipeline stage">
+          <option>Stage: All</option>
+          <option>New</option>
+          <option>Active</option>
+          <option>Engaged</option>
+          <option>In-Active</option>
+        </select>
+        <!-- AI state — binary -->
+        <select class="filter-select" aria-label="AI state">
+          <option>AI: Any</option>
+          <option>AI on</option>
+          <option>AI paused</option>
+        </select>
+        <!-- Assignment / handoff state — separate axis -->
+        <select class="filter-select" aria-label="Assignment">
+          <option>Assignment: Any</option>
+          <option>Unassigned</option>
+          <option>Assigned</option>
+          <option>Handoff needed</option>
+        </select>
+        <select class="filter-select" aria-label="Agent">
+          <option>Agent: Any</option>
+          <option>Menna A.</option>
+          <option>Karim R.</option>
+          <option>Sara F.</option>
+          <option>Youssef H.</option>
+        </select>
+        <select class="filter-select" aria-label="Language">
+          <option>Language: Any</option>
+          <option>Arabic</option>
+          <option>Arabizi</option>
+          <option>English</option>
+          <option>Code-switching</option>
+        </select>
+        <select class="filter-select" aria-label="Trigger">
+          <option>Trigger: Any</option>
+          <option>Asked for human</option>
+          <option>Negotiation / discount</option>
+          <option>Ready to visit</option>
+          <option>Bot failed ×2</option>
+          <option>Message threshold</option>
+          <option>Frustration detected</option>
+        </select>
+        <!-- Indicators live outside pipeline/AI — non-stage flags -->
+        <select class="filter-select" aria-label="Indicators">
+          <option>Indicators: Any</option>
+          <option>Token cap reached</option>
+          <option>Dead-ended</option>
+          <option>WhatsApp restricted</option>
+          <option>Fraud flagged</option>
+        </select>
+      </div>
+
+      <div class="filter-group filter-range">
+        <button class="range-btn">7D</button>
+        <button class="range-btn is-active">30D</button>
+        <button class="range-btn">90D</button>
+        <button class="range-btn range-custom">Apr 1 – Apr 20, 2026 ▾</button>
+      </div>
+
+      <div class="filter-group filter-toggles">
+        <label class="filter-toggle"><input type="checkbox" /><span>Fraud only</span></label>
+        <label class="filter-toggle"><input type="checkbox" /><span>Returning only</span></label>
+      </div>
+
+      <div class="filter-group filter-tail">
+        <span class="filter-meta muted">Updated just now</span>
+        <button class="btn btn-ghost btn-sm">Reset</button>
+      </div>
+
+    </div>
+
+    <!-- Active filter chips -->
+    <div class="active-filters">
+      <span class="filter-chip"><b>Stage</b>: Engaged <button aria-label="Remove">×</button></span>
+      <span class="filter-chip"><b>Assignment</b>: Handoff needed <button aria-label="Remove">×</button></span>
+      <span class="filter-chip"><b>Language</b>: Arabic <button aria-label="Remove">×</button></span>
+      <button class="btn btn-ghost btn-xs">Clear all</button>
+    </div>
+
+    <!-- Conversation list -->
+    <section class="conv-list-wrap">
+
+      <!-- List header -->
+      <div class="conv-list-head">
+        <div class="conv-list-count muted">Showing <b>247</b> of 3,214</div>
+        <div class="conv-list-tools">
+          <label class="bulk-select"><input type="checkbox" /><span class="muted">Select all on page</span></label>
+          <div class="sort-wrap">
+            <span class="muted">Sort:</span>
+            <select class="filter-select filter-select-sm">
+              <option>Most recent activity</option>
+              <option>Oldest</option>
+              <option>Most messages</option>
+              <option>Highest credits</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column legend — reinforces the 3-axis model -->
+      <div class="conv-list-legend" aria-hidden="true">
+        <span></span>
+        <span>Customer</span>
+        <span>Last message</span>
+        <span class="legend-stage">Pipeline stage</span>
+        <span class="legend-ai">AI state</span>
+        <span class="legend-assign">Assignment</span>
+        <span>Tags</span>
+        <span>Activity</span>
+      </div>
+
+      <!-- Bulk actions (appears when selection > 0) -->
+      <div class="bulk-actions" hidden>
+        <span class="bulk-count"><b>0</b> selected</span>
+        <button class="btn btn-ghost btn-sm">Assign…</button>
+        <button class="btn btn-ghost btn-sm">Pause AI</button>
+        <button class="btn btn-ghost btn-sm">Add tag</button>
+        <button class="btn btn-ghost btn-sm">Export</button>
+        <button class="btn btn-ghost btn-sm danger">Flag fraud</button>
+      </div>
+
+      <!-- Rows -->
+      <ul class="conv-list" role="list">
+
+        <!-- Row 1 — New, returning -->
+        <li class="conv-row" data-stage="new">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">RE</div>
+            <div class="conv-identity">
+              <div class="conv-name">Rania El-Sayed</div>
+              <div class="conv-sub muted">+20 10 2345 6789 · Arabic</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-customer">›</span> عايزة شقة 3 غرف في بادية، ميزانيتي 5 مليون</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-returning">Returning</span>
+              <span class="conv-badge badge-lang-ar">AR</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-new">New</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-on"><span class="ai-dot ai-dot-on"></span>AI on</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-unassigned">Unassigned</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip">Badya</span>
+            <span class="tag-chip">3BR</span>
+            <span class="tag-chip">≤ 5M</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>4</b><span class="muted"> msgs</span></div>
+            <div class="conv-time muted">2 min ago</div>
+          </div>
+        </li>
+
+        <!-- Row 2 — Active, paused by human -->
+        <li class="conv-row" data-stage="active">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">AH</div>
+            <div class="conv-identity">
+              <div class="conv-name">Ahmed Hosny</div>
+              <div class="conv-sub muted">+20 12 9876 5432 · English</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-bot">◎</span> Here are 3 matching apartments in Palm Hills West ranging from 3.8M to 4.6M EGP. Would you like to see…</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-lang-ar">EN</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-active">Active</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-paused"><span class="ai-dot ai-dot-paused"></span>AI paused</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-assigned"><span class="assignee-avatar">MA</span>Menna A.</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip">Palm Hills West</span>
+            <span class="tag-chip">Apartment</span>
+            <span class="tag-chip">Investment</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>18</b><span class="muted"> msgs</span></div>
+            <div class="conv-time muted">8 min ago</div>
+          </div>
+        </li>
+
+        <!-- Row 3 — Engaged, handoff pending (unassigned in queue) -->
+        <li class="conv-row" data-stage="engaged">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">OK</div>
+            <div class="conv-identity">
+              <div class="conv-name">Omar Khaled</div>
+              <div class="conv-sub muted">+20 11 4567 8901 · Arabizi</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-customer">›</span> lw momken a3raf el installments 3ala el villa el tania</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-trigger">Trigger: Ready to visit</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-engaged">Engaged</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-paused"><span class="ai-dot ai-dot-paused"></span>AI paused</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-handoff">◷ Handoff needed</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip">Badya</span>
+            <span class="tag-chip">Villa</span>
+            <span class="tag-chip">Self-use</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>23</b><span class="muted"> msgs</span></div>
+            <div class="conv-time muted">31 min ago</div>
+          </div>
+        </li>
+
+        <!-- Row 4 — Active, code-switching, bot cap hit -->
+        <li class="conv-row" data-stage="active">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">LM</div>
+            <div class="conv-identity">
+              <div class="conv-name">Layla Mansour</div>
+              <div class="conv-sub muted">+20 10 7788 9900 · Mixed</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-customer">›</span> ana 3ayza apartment in Sheikh Zayed budget 3M fully finished</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-cap">Token cap reached</span>
+              <span class="conv-badge badge-lang-mx">Mixed</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-active">Active</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-paused"><span class="ai-dot ai-dot-paused"></span>AI paused</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-assigned"><span class="assignee-avatar">KR</span>Karim R.</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip">Sheikh Zayed</span>
+            <span class="tag-chip">Apartment</span>
+            <span class="tag-chip">Fully finished</span>
+            <span class="tag-chip more">+2</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>47</b><span class="muted"> msgs</span></div>
+            <div class="conv-time muted">1 h ago</div>
+          </div>
+        </li>
+
+        <!-- Row 5 — New, emoji-only (E1) -->
+        <li class="conv-row" data-stage="new">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">NS</div>
+            <div class="conv-identity">
+              <div class="conv-name">Nourhan Said</div>
+              <div class="conv-sub muted">+20 15 2233 4455 · —</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-customer">›</span> 👋🏻🏠</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-new">New customer</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-new">New</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-on"><span class="ai-dot ai-dot-on"></span>AI on</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-unassigned">Unassigned</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip muted-chip">No tags yet</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>1</b><span class="muted"> msg</span></div>
+            <div class="conv-time muted">3 h ago</div>
+          </div>
+        </li>
+
+        <!-- Row 6 — Engaged, assigned -->
+        <li class="conv-row" data-stage="engaged">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">YM</div>
+            <div class="conv-identity">
+              <div class="conv-name">Yasmin Magdy</div>
+              <div class="conv-sub muted">+20 12 1122 3344 · Arabic</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-agent">◆</span> تمام، هبعتلك اللوكيشن وهاتأكد معاكي المعاد بكرة</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-returning">Returning</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-engaged">Engaged</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-paused"><span class="ai-dot ai-dot-paused"></span>AI paused</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-assigned"><span class="assignee-avatar">SF</span>Sara F.</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip">New Cairo</span>
+            <span class="tag-chip">Villa</span>
+            <span class="tag-chip">10M+</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>31</b><span class="muted"> msgs</span></div>
+            <div class="conv-time muted">Yesterday</div>
+          </div>
+        </li>
+
+        <!-- Row 7 — In-Active -->
+        <li class="conv-row row-inactive" data-stage="inactive">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">HF</div>
+            <div class="conv-identity">
+              <div class="conv-name">Hassan Farouk</div>
+              <div class="conv-sub muted">+20 11 5566 7788 · Arabic</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-bot">◎</span> ممكن نتواصل معاك فريق المبيعات خلال يوم عمل…</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-inactive">21 days silent</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-inactive">In-Active</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-on"><span class="ai-dot ai-dot-on"></span>AI on</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-unassigned">Unassigned</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip">Mostakbal City</span>
+            <span class="tag-chip">2BR</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>12</b><span class="muted"> msgs</span></div>
+            <div class="conv-time muted">21 days ago</div>
+          </div>
+        </li>
+
+        <!-- Row 8 — Fraud flagged (E8) -->
+        <li class="conv-row row-fraud" data-stage="active">
+          <label class="conv-check"><input type="checkbox" /></label>
+          <div class="conv-person">
+            <div class="conv-avatar">??</div>
+            <div class="conv-identity">
+              <div class="conv-name">+20 15 0000 0001</div>
+              <div class="conv-sub muted">Unknown name · Arabic</div>
+            </div>
+          </div>
+          <div class="conv-preview">
+            <div class="conv-preview-line"><span class="who-customer">›</span> [content hidden — fraud flagged]</div>
+            <div class="conv-badges">
+              <span class="conv-badge badge-fraud">Fraud · AI suppressed</span>
+            </div>
+          </div>
+          <div class="conv-stage">
+            <span class="stage-pill stage-pill-active">Active</span>
+          </div>
+          <div class="conv-ai">
+            <span class="ai-state-pill ai-state-paused"><span class="ai-dot ai-dot-paused"></span>AI paused</span>
+          </div>
+          <div class="conv-assignee">
+            <span class="assign-pill assign-unassigned">Unassigned</span>
+          </div>
+          <div class="conv-tags">
+            <span class="tag-chip tag-chip-fraud">Flagged</span>
+          </div>
+          <div class="conv-meta">
+            <div class="conv-msgs"><b>6</b><span class="muted"> msgs</span></div>
+            <div class="conv-time muted">2 days ago</div>
+          </div>
+        </li>
+
+      </ul>
+
+      <!-- Pagination -->
+      <footer class="conv-list-foot">
+        <div class="muted">Page 1 of 18</div>
+        <div class="conv-list-pager">
+          <button class="btn btn-ghost btn-sm" disabled>← Prev</button>
+          <button class="btn btn-ghost btn-sm">Next →</button>
+        </div>
+      </footer>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

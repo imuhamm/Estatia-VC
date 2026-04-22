@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estatia — Customer profile</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="detail-body">
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div class="brand-name">estatia</div>
+    </div>
+    <nav class="nav">
+      <a class="nav-item" href="../dashboard/"><span class="ico">▦</span> Dashboard</a>
+      <a class="nav-item" href="../conversations/"><span class="ico">◌</span> Conversations</a>
+      <a class="nav-item"><span class="ico">⇋</span> Pipeline</a>
+      <a class="nav-item"><span class="ico">◫</span> Inventory</a>
+      <a class="nav-item active" href="../customers/"><span class="ico">☺</span> Customers</a>
+      <a class="nav-item" href="../analytics/"><span class="ico">◎</span> Analytics</a>
+      <a class="nav-item"><span class="ico">◉</span> Bot Config</a>
+      <a class="nav-item"><span class="ico">⌥</span> Team</a>
+      <a class="nav-item"><span class="ico">◊</span> Billing &amp; Credits</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="plan-card">
+        <div class="plan-title">Growth Plan</div>
+        <div class="plan-sub">7 days left · Free trial</div>
+        <button class="btn btn-primary btn-sm">Upgrade</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="account">
+          <div class="account-name" data-name-developer="Palm Hills Developments" data-name-broker="Nile Realty Brokers">Palm Hills Developments</div>
+          <div class="mode-toggle" role="tablist" aria-label="Account mode">
+            <button class="mode-btn is-active" data-mode="developer" role="tab" aria-selected="true">Developer</button>
+            <button class="mode-btn" data-mode="broker" role="tab" aria-selected="false">Broker</button>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="search"><input type="search" placeholder="Search…" /></div>
+        <button class="icon-btn" aria-label="Notifications">◔<span class="dot"></span></button>
+        <div class="avatar">MA</div>
+      </div>
+    </header>
+
+    <!-- Breadcrumb + back -->
+    <div class="detail-breadcrumb">
+      <a class="btn btn-ghost btn-sm back-btn" href="index.html">← Back to Customers</a>
+      <nav class="breadcrumb muted" aria-label="Breadcrumb">
+        <a href="index.html">Customers</a>
+        <span>/</span>
+        <span class="current">Ahmed Hosny</span>
+      </nav>
+    </div>
+
+    <!-- Profile header -->
+    <section class="detail-header">
+      <div class="dh-left">
+        <div class="dh-avatar">AH</div>
+        <div class="dh-identity">
+          <div class="dh-name-row">
+            <h1 class="dh-name">Ahmed Hosny</h1>
+            <span class="conv-badge badge-returning">Returning</span>
+            <span class="stage-pill stage-pill-engaged">Engaged</span>
+          </div>
+          <div class="dh-sub muted">
+            <span>+20 12 9876 5432</span>
+            <span class="dot-sep">·</span>
+            <span>English</span>
+            <span class="dot-sep">·</span>
+            <span>WhatsApp verified</span>
+            <span class="dot-sep">·</span>
+            <span>First contact Jan 14, 2026 · 97 days ago</span>
+          </div>
+        </div>
+      </div>
+      <div class="dh-right">
+        <div class="dh-actions">
+          <a class="btn btn-primary btn-sm" href="../conversations/detail.html?id=1">Open conversation →</a>
+          <button class="btn btn-secondary btn-sm">Assign…</button>
+          <button class="btn btn-ghost btn-sm">Edit profile</button>
+          <button class="btn btn-ghost btn-sm more-btn" aria-haspopup="menu">⋯</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI strip -->
+    <div class="cust-kpi-strip">
+      <div class="cust-kpi">
+        <div class="kpi-label muted">Conversations</div>
+        <div class="kpi-value">3</div>
+        <div class="kpi-sub muted">Across 97 days</div>
+      </div>
+      <div class="cust-kpi">
+        <div class="kpi-label muted">Total messages</div>
+        <div class="kpi-value">42</div>
+        <div class="kpi-sub muted">28 in · 14 out</div>
+      </div>
+      <div class="cust-kpi">
+        <div class="kpi-label muted">Lifetime credits</div>
+        <div class="kpi-value">487</div>
+        <div class="kpi-sub muted">Avg 162 / session</div>
+      </div>
+      <div class="cust-kpi">
+        <div class="kpi-label muted">Avg response time</div>
+        <div class="kpi-value">4.2s</div>
+        <div class="kpi-sub muted">Bot · fast tier</div>
+      </div>
+      <div class="cust-kpi">
+        <div class="kpi-label muted">Stage velocity</div>
+        <div class="kpi-value">2d</div>
+        <div class="kpi-sub muted">New → Engaged</div>
+      </div>
+      <div class="cust-kpi">
+        <div class="kpi-label muted">Last activity</div>
+        <div class="kpi-value">4m</div>
+        <div class="kpi-sub muted">In current session</div>
+      </div>
+    </div>
+
+    <!-- Two-col: main + sidebar -->
+    <section class="detail-split">
+
+      <!-- Main -->
+      <div class="profile-main">
+
+        <!-- Pipeline timeline -->
+        <section class="panel">
+          <div class="panel-head">
+            <h3 class="panel-title">Pipeline journey</h3>
+            <span class="muted">Auto-tracked from conversation events</span>
+          </div>
+          <div class="stage-journey">
+            <div class="stage-step done">
+              <div class="step-dot"></div>
+              <div class="step-label">New</div>
+              <div class="step-date muted">Jan 14</div>
+            </div>
+            <div class="stage-line done"></div>
+            <div class="stage-step done">
+              <div class="step-dot"></div>
+              <div class="step-label">Active</div>
+              <div class="step-date muted">Jan 15 · +1d</div>
+            </div>
+            <div class="stage-line done"></div>
+            <div class="stage-step current">
+              <div class="step-dot"></div>
+              <div class="step-label">Engaged</div>
+              <div class="step-date muted">Apr 21 · Today</div>
+            </div>
+            <div class="stage-line"></div>
+            <div class="stage-step">
+              <div class="step-dot"></div>
+              <div class="step-label">In-Active</div>
+              <div class="step-date muted">—</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Conversations list -->
+        <section class="panel">
+          <div class="panel-head">
+            <h3 class="panel-title">Conversations (3)</h3>
+            <a class="btn btn-ghost btn-sm" href="../conversations/index.html">View all →</a>
+          </div>
+          <div class="cust-conv-list">
+            <a class="cust-conv-row" href="../conversations/detail.html?id=1">
+              <div>
+                <div class="ccl-title">Current session <span class="conv-badge badge-active">Active</span></div>
+                <div class="muted">Apr 21, 2026 · 8 msgs · "Ready to visit" triggered · Menna A. replying</div>
+              </div>
+              <div class="ccl-meta">
+                <div><b>0</b><span class="muted"> new credits</span></div>
+                <div class="muted">4m ago</div>
+              </div>
+            </a>
+            <a class="cust-conv-row" href="../conversations/detail.html?id=1&session=prev">
+              <div>
+                <div class="ccl-title">Previous session</div>
+                <div class="muted">Jan 14, 2026 · 24 msgs · Payment-plan comparison</div>
+              </div>
+              <div class="ccl-meta">
+                <div><b>312</b><span class="muted"> credits</span></div>
+                <div class="muted">97d ago</div>
+              </div>
+            </a>
+            <a class="cust-conv-row" href="../conversations/detail.html?id=1&session=first">
+              <div>
+                <div class="ccl-title">First contact</div>
+                <div class="muted">Jan 14, 2026 · 10 msgs · Initial inquiry Palm Hills West</div>
+              </div>
+              <div class="ccl-meta">
+                <div><b>175</b><span class="muted"> credits</span></div>
+                <div class="muted">97d ago</div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Properties of interest -->
+        <section class="panel">
+          <div class="panel-head">
+            <h3 class="panel-title">Properties of interest</h3>
+            <span class="muted">Derived from conversation intent</span>
+          </div>
+          <div class="prop-grid">
+            <div class="prop-card">
+              <div class="prop-title">Palm Hills West · Unit D2A8-02-0158</div>
+              <div class="muted">3BR · 158 sqm · Floor 2</div>
+              <div class="prop-price">EGP 4,380,000</div>
+              <div class="prop-tags">
+                <span class="tag-chip tag-success">Preferred option</span>
+                <span class="tag-chip">Plan B · 20% DP</span>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-title">Palm Hills West · Unit D2A8-04-0165</div>
+              <div class="muted">3BR · 165 sqm · Floor 4</div>
+              <div class="prop-price">EGP 4,650,000</div>
+              <div class="prop-tags">
+                <span class="tag-chip">Shortlisted</span>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-title">Palm Hills West · Unit D2A8-06-0172</div>
+              <div class="muted">3BR · 172 sqm · Floor 6</div>
+              <div class="prop-price">EGP 4,920,000</div>
+              <div class="prop-tags">
+                <span class="tag-chip">Considered</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Activity timeline -->
+        <section class="panel">
+          <div class="panel-head">
+            <h3 class="panel-title">Activity timeline</h3>
+            <div class="filter-range">
+              <button class="range-btn is-active">All</button>
+              <button class="range-btn">Conversations</button>
+              <button class="range-btn">Stage</button>
+              <button class="range-btn">Tags</button>
+            </div>
+          </div>
+          <ul class="timeline">
+            <li class="tl-item">
+              <div class="tl-dot tl-dot-trigger"></div>
+              <div class="tl-body">
+                <div class="tl-title">"Ready to visit" trigger fired → Flow 6 handoff</div>
+                <div class="muted">Apr 21 · 14:09 · Assigned Menna A.</div>
+              </div>
+            </li>
+            <li class="tl-item">
+              <div class="tl-dot tl-dot-stage"></div>
+              <div class="tl-body">
+                <div class="tl-title">Stage advanced to <b>Engaged</b></div>
+                <div class="muted">Apr 21 · 14:09</div>
+              </div>
+            </li>
+            <li class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <div class="tl-title">Auto-tag added: <b>≤ 5M</b>, <b>3BR</b>, <b>Palm Hills West</b></div>
+                <div class="muted">Apr 21 · 14:02</div>
+              </div>
+            </li>
+            <li class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <div class="tl-title">New conversation session started (within 24h window expired)</div>
+                <div class="muted">Apr 21 · 14:02</div>
+              </div>
+            </li>
+            <li class="tl-item">
+              <div class="tl-dot tl-dot-stage"></div>
+              <div class="tl-body">
+                <div class="tl-title">Stage advanced to <b>Active</b></div>
+                <div class="muted">Jan 15</div>
+              </div>
+            </li>
+            <li class="tl-item">
+              <div class="tl-dot tl-dot-first"></div>
+              <div class="tl-body">
+                <div class="tl-title">First contact via WhatsApp · Palm Hills West campaign</div>
+                <div class="muted">Jan 14, 2026 · 10:22</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+
+        <section class="side-card">
+          <h3 class="side-title">Contact</h3>
+          <ul class="side-list">
+            <li><span class="muted">Phone</span><span>+20 12 9876 5432</span></li>
+            <li><span class="muted">WhatsApp</span><span>Verified</span></li>
+            <li><span class="muted">Email</span><span class="muted">—</span></li>
+            <li><span class="muted">Language</span><span>English</span></li>
+            <li><span class="muted">Timezone</span><span>Africa/Cairo</span></li>
+          </ul>
+        </section>
+
+        <section class="side-card">
+          <h3 class="side-title">Assigned</h3>
+          <ul class="side-list">
+            <li><span class="muted">Owner</span><span><span class="assignee-pill"><span class="assignee-avatar">MA</span>Menna A.</span></span></li>
+            <li><span class="muted">Routing rule</span><span>EN · Palm Hills West</span></li>
+            <li><span class="muted">Fallback</span><span>Hana N.</span></li>
+          </ul>
+        </section>
+
+        <section class="side-card">
+          <div class="side-head">
+            <h3 class="side-title">Tags</h3>
+            <button class="btn btn-ghost btn-xs">Edit</button>
+          </div>
+          <div class="tag-group">
+            <div class="tag-group-label muted">Area</div>
+            <div class="tag-row">
+              <span class="tag-chip">New Cairo</span>
+              <span class="tag-chip">Palm Hills West</span>
+            </div>
+          </div>
+          <div class="tag-group">
+            <div class="tag-group-label muted">Property</div>
+            <div class="tag-row">
+              <span class="tag-chip">Apartment</span>
+              <span class="tag-chip">3BR</span>
+              <span class="tag-chip">165 sqm</span>
+            </div>
+          </div>
+          <div class="tag-group">
+            <div class="tag-group-label muted">Budget &amp; intent</div>
+            <div class="tag-row">
+              <span class="tag-chip">≤ 5M EGP</span>
+              <span class="tag-chip">Investment</span>
+              <span class="tag-chip manual-tag">Manual</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="side-card">
+          <h3 class="side-title">AI summary</h3>
+          <p class="ai-summary">
+            English-speaking investor, 97-day lifespan. Consistent interest in Palm Hills West 3BR apartments ≤ 5M EGP. Compared Plans A vs B across two sessions; gravitating toward Plan B (20% DP). Today asked for a visit — handoff triggered, AI paused while Menna A. replies.
+          </p>
+        </section>
+
+        <section class="side-card side-card-danger">
+          <h3 class="side-title">More</h3>
+          <div class="danger-actions">
+            <button class="btn btn-ghost btn-sm">Merge duplicate…</button>
+            <button class="btn btn-ghost btn-sm">Move to In-Active</button>
+            <button class="btn btn-ghost btn-sm danger">Flag as fraud</button>
+            <button class="btn btn-ghost btn-sm danger">Delete customer</button>
+          </div>
+        </section>
+
+      </aside>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

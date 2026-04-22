@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estatia — Analytics</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar (reused from dashboard) -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div class="brand-name">estatia</div>
+    </div>
+    <nav class="nav">
+      <a class="nav-item" href="../dashboard/"><span class="ico">▦</span> Dashboard</a>
+      <a class="nav-item" href="../conversations/"><span class="ico">◌</span> Conversations</a>
+      <a class="nav-item"><span class="ico">⇋</span> Pipeline</a>
+      <a class="nav-item"><span class="ico">◫</span> Inventory</a>
+      <a class="nav-item" href="../customers/"><span class="ico">☺</span> Customers</a>
+      <a class="nav-item active"><span class="ico">◎</span> Analytics</a>
+      <a class="nav-item"><span class="ico">◉</span> Bot Config</a>
+      <a class="nav-item"><span class="ico">⌥</span> Team</a>
+      <a class="nav-item"><span class="ico">◊</span> Billing &amp; Credits</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="plan-card">
+        <div class="plan-title">Growth Plan</div>
+        <div class="plan-sub">7 days left · Free trial</div>
+        <button class="btn btn-primary btn-sm">Upgrade</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="account">
+          <div class="account-name" data-name-developer="Palm Hills Developments" data-name-broker="Nile Realty Brokers">Palm Hills Developments</div>
+          <div class="mode-toggle" role="tablist" aria-label="Account mode">
+            <button class="mode-btn is-active" data-mode="developer" role="tab" aria-selected="true">Developer</button>
+            <button class="mode-btn" data-mode="broker" role="tab" aria-selected="false">Broker</button>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="search"><input type="search" placeholder="Search…" /></div>
+        <button class="icon-btn" aria-label="Notifications">◔<span class="dot"></span></button>
+        <div class="avatar">MA</div>
+      </div>
+    </header>
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div>
+        <h1>Analytics</h1>
+        <div class="subtitle">Demand, conversations, funnel, and bot performance.</div>
+      </div>
+      <div class="page-header-actions">
+        <button class="btn btn-secondary">Export Excel</button>
+      </div>
+    </div>
+
+    <!-- Section tabs -->
+    <nav class="section-tabs" aria-label="Analytics sections">
+      <a class="section-tab is-active" data-tab="overview">Overview</a>
+      <a class="section-tab" data-tab="demand">Demand</a>
+      <a class="section-tab" data-tab="conversations">Conversations</a>
+      <a class="section-tab" data-tab="funnel">Funnel</a>
+      <a class="section-tab" data-tab="bot">Bot performance</a>
+    </nav>
+
+    <!-- Global filter bar -->
+    <div class="filter-bar" role="region" aria-label="Filters">
+      <div class="filter-group filter-range">
+        <button class="range-btn">7D</button>
+        <button class="range-btn is-active">30D</button>
+        <button class="range-btn">90D</button>
+        <button class="range-btn">12M</button>
+        <button class="range-btn range-custom">Apr 1 – Apr 20, 2026 ▾</button>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-toggle">
+          <input type="checkbox" checked />
+          <span>Compare to previous period</span>
+        </label>
+        <label class="filter-toggle">
+          <input type="checkbox" id="filter-returning" />
+          <span>Returning users only</span>
+        </label>
+      </div>
+
+      <div class="filter-group filter-selects">
+        <select class="filter-select">
+          <option>All areas</option>
+          <option>6th of October</option>
+          <option>New Cairo</option>
+          <option>North Coast</option>
+        </select>
+        <select class="filter-select">
+          <option>All projects</option>
+          <option>Palm Hills West</option>
+          <option>Badya</option>
+        </select>
+        <select class="filter-select">
+          <option>All property types</option>
+          <option>Apartment</option>
+          <option>Villa</option>
+          <option>Townhouse</option>
+        </select>
+      </div>
+
+      <div class="filter-group filter-tail">
+        <span class="filter-meta muted">Updated 12 min ago</span>
+        <button class="btn btn-ghost btn-sm">Reset</button>
+      </div>
+    </div>
+
+    <!-- Content region (placeholder — widgets come in step 2+) -->
+    <section class="analytics-content" data-active-tab="overview">
+
+      <!-- Overview placeholder -->
+      <div class="tab-panel is-active" data-panel="overview">
+
+        <!-- Section intro -->
+        <div class="section-intro">
+          <h2 class="section-heading">Overview</h2>
+          <p class="section-sub muted">A snapshot across demand, conversations, funnel, and bot performance. Deep-dive in each tab.</p>
+        </div>
+
+        <!-- ── Headline KPIs (one from each tab) ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Headline</h3>
+          <div class="kpi-strip">
+            <article class="kpi-card">
+              <div class="kpi-head">
+                <span class="metric-id">B1</span>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </div>
+              <div class="kpi-label">Total conversations</div>
+              <div class="kpi-value">3,214</div>
+              <div class="kpi-delta positive">▲ 6.8% vs previous period</div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-head">
+                <span class="metric-id">C2</span>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </div>
+              <div class="kpi-label">Engaged rate</div>
+              <div class="kpi-value">34.6%</div>
+              <div class="kpi-delta positive">▲ 2.1pp vs previous period</div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-head">
+                <span class="metric-id">B8</span>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </div>
+              <div class="kpi-label">Bot containment</div>
+              <div class="kpi-value">82.4%</div>
+              <div class="kpi-delta positive">▲ 1.4pp vs previous period</div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-head">
+                <span class="metric-id">D2</span>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </div>
+              <div class="kpi-label">Credits remaining</div>
+              <div class="kpi-value">184,320</div>
+              <div class="kpi-delta muted">46% of allocation</div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Demand Highlights (mini) ── -->
+        <div class="analytics-section">
+          <div class="section-title-row">
+            <h3 class="section-title">Demand Highlights</h3>
+            <a class="section-link" href="#" data-tab-link="demand">Open Demand →</a>
+          </div>
+          <div class="widget-grid grid-2-1">
+            <article class="widget" data-metric="A1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A1</span>
+                  <h3 class="widget-title">Top areas</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list hbar-list-compact">
+                  <li><span class="hbar-label">New Cairo</span><div class="hbar"><span class="hbar-fill" style="width:100%"></span></div><span class="hbar-value">412</span></li>
+                  <li><span class="hbar-label">6th of October</span><div class="hbar"><span class="hbar-fill" style="width:82%"></span></div><span class="hbar-value">339</span></li>
+                  <li><span class="hbar-label">Sheikh Zayed</span><div class="hbar"><span class="hbar-fill" style="width:67%"></span></div><span class="hbar-value">276</span></li>
+                  <li><span class="hbar-label">North Coast</span><div class="hbar"><span class="hbar-fill" style="width:55%"></span></div><span class="hbar-value">227</span></li>
+                  <li><span class="hbar-label">Mostakbal City</span><div class="hbar"><span class="hbar-fill" style="width:43%"></span></div><span class="hbar-value">177</span></li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Top 5 of 12 tagged areas.</footer>
+            </article>
+
+            <article class="widget" data-metric="A3">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A3</span>
+                  <h3 class="widget-title">Property type mix</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body donut-body">
+                <div class="donut donut-sm" style="--a:68; --b:18; --c:9; --d:5;" aria-label="Apartment 68%, Villa 18%, Townhouse 9%, Other 5%">
+                  <div class="donut-center">
+                    <div class="donut-total">68%</div>
+                    <div class="donut-label muted">Apartment</div>
+                  </div>
+                </div>
+                <ul class="donut-legend">
+                  <li><span class="sw sw-a"></span>Apartment<b>68%</b></li>
+                  <li><span class="sw sw-b"></span>Villa<b>18%</b></li>
+                  <li><span class="sw sw-c"></span>Townhouse<b>9%</b></li>
+                  <li><span class="sw sw-d"></span>Other<b>5%</b></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Conversation Pulse ── -->
+        <div class="analytics-section">
+          <div class="section-title-row">
+            <h3 class="section-title">Conversation Pulse</h3>
+            <a class="section-link" href="#" data-tab-link="conversations">Open Conversations →</a>
+          </div>
+          <div class="widget-grid grid-2-1">
+            <article class="widget" data-metric="B1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B1</span>
+                  <h3 class="widget-title">Volume trend</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <svg class="line-chart" viewBox="0 0 600 200" role="img" aria-label="Conversations per day over the last 30 days">
+                  <defs>
+                    <linearGradient id="ovFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--brand-primary)" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="var(--brand-primary)" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <polyline class="line-area" fill="url(#ovFill)" stroke="none"
+                    points="0,200 0,150 50,132 100,120 150,128 200,104 250,112 300,88 350,98 400,72 450,80 500,60 550,70 600,48 600,200"/>
+                  <polyline class="line-path" fill="none"
+                    points="0,150 50,132 100,120 150,128 200,104 250,112 300,88 350,98 400,72 450,80 500,60 550,70 600,48"/>
+                </svg>
+                <ul class="line-axis muted">
+                  <li>Mar 22</li><li>Mar 29</li><li>Apr 5</li><li>Apr 12</li><li>Apr 19</li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Daily conversation count. Peak 162 on Apr 18.</footer>
+            </article>
+
+            <article class="widget" data-metric="B2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B2</span>
+                  <h3 class="widget-title">New vs returning</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body donut-body">
+                <div class="donut donut-sm" style="--a:72; --b:28; --c:0; --d:0;" aria-label="New 72%, Returning 28%">
+                  <div class="donut-center">
+                    <div class="donut-total">72%</div>
+                    <div class="donut-label muted">New</div>
+                  </div>
+                </div>
+                <ul class="donut-legend">
+                  <li><span class="sw sw-a"></span>New<b>2,314</b></li>
+                  <li><span class="sw sw-b"></span>Returning<b>900</b></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Funnel Snapshot ── -->
+        <div class="analytics-section">
+          <div class="section-title-row">
+            <h3 class="section-title">Funnel Snapshot</h3>
+            <a class="section-link" href="#" data-tab-link="funnel">Open Funnel →</a>
+          </div>
+          <div class="widget-grid grid-2">
+            <article class="widget" data-metric="C1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">C1</span>
+                  <h3 class="widget-title">Pipeline funnel</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="funnel">
+                  <li class="funnel-row" style="--w:100;">
+                    <span class="funnel-label">New</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">3,214</span>
+                  </li>
+                  <li class="funnel-row" style="--w:63;">
+                    <span class="funnel-label">Active</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">2,024</span>
+                  </li>
+                  <li class="funnel-row" style="--w:35;">
+                    <span class="funnel-label">Engaged</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">1,112</span>
+                  </li>
+                  <li class="funnel-row funnel-row-inactive" style="--w:13;">
+                    <span class="funnel-label">In-Active</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">412</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Biggest leak: New → Active (37%).</footer>
+            </article>
+
+            <article class="widget" data-metric="C2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">C2</span>
+                  <h3 class="widget-title">Stage conversion</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list hbar-list-compact">
+                  <li><span class="hbar-label">New → Active</span><div class="hbar"><span class="hbar-fill" style="width:63%"></span></div><span class="hbar-value">63%</span></li>
+                  <li><span class="hbar-label">Active → Engaged</span><div class="hbar"><span class="hbar-fill" style="width:55%"></span></div><span class="hbar-value">55%</span></li>
+                  <li><span class="hbar-label">Engaged → In-Active</span><div class="hbar"><span class="hbar-fill" style="width:37%"></span></div><span class="hbar-value">37%</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Bot Health ── -->
+        <div class="analytics-section">
+          <div class="section-title-row">
+            <h3 class="section-title">Bot Health</h3>
+            <a class="section-link" href="#" data-tab-link="bot">Open Bot →</a>
+          </div>
+          <div class="widget-grid grid-3">
+            <article class="widget" data-metric="D2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">D2</span>
+                  <h3 class="widget-title">Credits remaining</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="remaining-card">
+                  <div class="ring" style="--pct:46; --ring-color: var(--brand-primary);">
+                    <div class="ring-center">
+                      <div class="ring-value">46%</div>
+                    </div>
+                  </div>
+                  <div class="remaining-meta">
+                    <div class="remaining-value">184,320</div>
+                    <div class="remaining-sub muted">of 400k allocation</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="widget" data-metric="B8">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B8</span>
+                  <h3 class="widget-title">Bot containment</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="pct-metric">
+                  <div class="pct-metric-value">82.4%</div>
+                  <div class="pct-metric-bar"><span class="pct-metric-fill" style="width:82.4%"></span></div>
+                  <div class="pct-metric-sub muted">2,648 of 3,214 resolved without handoff</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="widget" data-metric="D4">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">D4</span>
+                  <h3 class="widget-title">Fallback rate</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="pct-metric">
+                  <div class="pct-metric-value">4.6%</div>
+                  <div class="pct-metric-bar"><span class="pct-metric-fill" style="width:4.6%"></span></div>
+                  <div class="pct-metric-sub muted">148 of 3,214 conversations</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DEMAND — Subscriber Analytics: Demand Intelligence (SCR-160) -->
+      <div class="tab-panel" data-panel="demand" hidden>
+
+        <!-- Section intro -->
+        <div class="section-intro">
+          <h2 class="section-heading">Demand Intelligence</h2>
+          <p class="section-sub muted">What customers are most frequently asking for across areas, projects, and preferences.</p>
+        </div>
+
+        <!-- ── Top Signals ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Top Signals</h3>
+          <div class="kpi-strip kpi-strip-5">
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top area</div>
+              <div class="kpi-value">New Cairo</div>
+              <div class="kpi-delta good">412 inquiries · 22%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top project</div>
+              <div class="kpi-value">Palm Hills West</div>
+              <div class="kpi-delta good">218 inquiries · 12%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top property type</div>
+              <div class="kpi-value">Apartment</div>
+              <div class="kpi-delta good">1,257 inquiries · 68%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top budget range</div>
+              <div class="kpi-value">2–5M EGP</div>
+              <div class="kpi-delta good">757 inquiries · 41%</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Top finishing</div>
+              <div class="kpi-value">Fully Finished</div>
+              <div class="kpi-delta good">776 inquiries · 42%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Demand Distribution (Area + Projects) ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Demand Distribution</h3>
+          <div class="widget-grid grid-2-1">
+            <!-- A1 — horizontal ranked bars -->
+            <article class="widget" data-metric="A1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A1</span>
+                  <h3 class="widget-title">Inquiry volume by area</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-mvp">MVP</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list">
+                  <li><span class="hbar-label">New Cairo</span><div class="hbar"><span class="hbar-fill" style="width:100%"></span></div><span class="hbar-value">412</span></li>
+                  <li><span class="hbar-label">6th of October</span><div class="hbar"><span class="hbar-fill" style="width:82%"></span></div><span class="hbar-value">339</span></li>
+                  <li><span class="hbar-label">Sheikh Zayed</span><div class="hbar"><span class="hbar-fill" style="width:67%"></span></div><span class="hbar-value">276</span></li>
+                  <li><span class="hbar-label">North Coast</span><div class="hbar"><span class="hbar-fill" style="width:55%"></span></div><span class="hbar-value">227</span></li>
+                  <li><span class="hbar-label">Mostakbal City</span><div class="hbar"><span class="hbar-fill" style="width:43%"></span></div><span class="hbar-value">177</span></li>
+                  <li><span class="hbar-label">New Admin. Capital</span><div class="hbar"><span class="hbar-fill" style="width:38%"></span></div><span class="hbar-value">156</span></li>
+                  <li><span class="hbar-label">Ain Sokhna</span><div class="hbar"><span class="hbar-fill" style="width:26%"></span></div><span class="hbar-value">107</span></li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Click a bar to filter the Conversations list by area.</footer>
+            </article>
+
+            <!-- A2 — lollipop chart (Top projects) -->
+            <article class="widget" data-metric="A2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A2</span>
+                  <h3 class="widget-title">Top projects</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="lollipop-list">
+                  <li><span class="lolli-label">Palm Hills West</span><div class="lolli-track"><span class="lolli-line" style="width:100%"></span><span class="lolli-dot" style="left:100%"></span></div><span class="lolli-value">218</span></li>
+                  <li><span class="lolli-label">Badya</span><div class="lolli-track"><span class="lolli-line" style="width:76%"></span><span class="lolli-dot" style="left:76%"></span></div><span class="lolli-value">165</span></li>
+                  <li><span class="lolli-label">Mountain View</span><div class="lolli-track"><span class="lolli-line" style="width:58%"></span><span class="lolli-dot" style="left:58%"></span></div><span class="lolli-value">127</span></li>
+                  <li><span class="lolli-label">Hyde Park</span><div class="lolli-track"><span class="lolli-line" style="width:44%"></span><span class="lolli-dot" style="left:44%"></span></div><span class="lolli-value">96</span></li>
+                  <li><span class="lolli-label">Marassi</span><div class="lolli-track"><span class="lolli-line" style="width:33%"></span><span class="lolli-dot" style="left:33%"></span></div><span class="lolli-value">71</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div><!-- /.analytics-section Demand Distribution -->
+
+        <!-- ── Property Breakdown (Type + Bedrooms + Budget) ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Property Breakdown</h3>
+          <div class="widget-grid grid-3">
+            <!-- A3 — donut chart (Property type) -->
+            <article class="widget" data-metric="A3">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A3</span>
+                  <h3 class="widget-title">Property type</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body donut-body donut-body-compact">
+                <div class="donut" style="--a:68;--b:84;--c:94;--d:98;">
+                  <div class="donut-center">
+                    <div class="donut-total">1,847</div>
+                    <div class="donut-label muted">inquiries</div>
+                  </div>
+                </div>
+                <ul class="donut-legend">
+                  <li><span class="sw sw-p1"></span>Apartment<b>68%</b></li>
+                  <li><span class="sw sw-p2"></span>Villa<b>16%</b></li>
+                  <li><span class="sw sw-p3"></span>Townhouse<b>10%</b></li>
+                  <li><span class="sw sw-p4"></span>Duplex<b>4%</b></li>
+                  <li><span class="sw sw-p5"></span>Studio<b>2%</b></li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- A4 — vertical column chart (Bedrooms) -->
+            <article class="widget" data-metric="A4">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A4</span>
+                  <h3 class="widget-title">Bedrooms</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="col-chart" role="img" aria-label="Bedroom distribution">
+                  <div class="col-col"><span class="col-val">2%</span><span class="col-bar" style="height:5%"></span><span class="col-label">Studio</span></div>
+                  <div class="col-col"><span class="col-val">9%</span><span class="col-bar" style="height:24%"></span><span class="col-label">1 BR</span></div>
+                  <div class="col-col"><span class="col-val">29%</span><span class="col-bar" style="height:76%"></span><span class="col-label">2 BR</span></div>
+                  <div class="col-col is-peak"><span class="col-val">38%</span><span class="col-bar" style="height:100%"></span><span class="col-label">3 BR</span></div>
+                  <div class="col-col"><span class="col-val">18%</span><span class="col-bar" style="height:47%"></span><span class="col-label">4 BR</span></div>
+                  <div class="col-col"><span class="col-val">4%</span><span class="col-bar" style="height:11%"></span><span class="col-label">5+</span></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- A5 — 100% stacked segmented bar (Budget range) -->
+            <article class="widget" data-metric="A5">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A5</span>
+                  <h3 class="widget-title">Budget range distribution</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body stacked-body">
+                <div class="stacked-scale">
+                  <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                </div>
+                <div class="stacked-bar">
+                  <span class="stacked-seg seg-1" style="width:41%">41%</span>
+                  <span class="stacked-seg seg-2" style="width:32%">32%</span>
+                  <span class="stacked-seg seg-3" style="width:16%">16%</span>
+                  <span class="stacked-seg seg-4" style="width:11%">11%</span>
+                </div>
+                <ul class="stacked-legend">
+                  <li><span class="sw sw-s1"></span>2–5M EGP<b>757</b></li>
+                  <li><span class="sw sw-s2"></span>5–10M EGP<b>591</b></li>
+                  <li><span class="sw sw-s3"></span>10M+ EGP<b>296</b></li>
+                  <li><span class="sw sw-s4"></span>&lt;2M EGP<b>203</b></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div><!-- /.analytics-section Property Breakdown -->
+
+        <!-- ── Customer Preferences ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Customer Preferences</h3>
+          <div class="widget-grid grid-2">
+            <!-- A7 — Finishing preference (rings) -->
+            <article class="widget" data-metric="A7">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A7</span>
+                  <h3 class="widget-title">Finishing preference</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body donut-body">
+                <div class="donut" style="--a:42;--b:70;--c:82;--d:94;">
+                  <div class="donut-center">
+                    <div class="donut-total">1,847</div>
+                    <div class="donut-label muted">inquiries</div>
+                  </div>
+                </div>
+                <ul class="donut-legend">
+                  <li><span class="sw sw-p1"></span>Fully Finished<b>42%</b></li>
+                  <li><span class="sw sw-p2"></span>Semi-Finished<b>28%</b></li>
+                  <li><span class="sw sw-p3"></span>Furnished<b>12%</b></li>
+                  <li><span class="sw sw-p4"></span>Flexi-Finished<b>12%</b></li>
+                  <li><span class="sw sw-p5"></span>Not Finished<b>6%</b></li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- A6 — Delivery timeline preference (horizontal bar chart) -->
+            <article class="widget" data-metric="A6">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A6</span>
+                  <h3 class="widget-title">Delivery timeline preference</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list hbar-list-compact">
+                  <li>
+                    <span class="hbar-label">Ready / Immediate</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:46%"></span></div>
+                    <span class="hbar-value">849</span>
+                  </li>
+                  <li>
+                    <span class="hbar-label">1–2 years</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:100%"></span></div>
+                    <span class="hbar-value">647</span>
+                  </li>
+                  <li>
+                    <span class="hbar-label">3–5 years</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:40%"></span></div>
+                    <span class="hbar-value">258</span>
+                  </li>
+                  <li>
+                    <span class="hbar-label">5+ years</span>
+                    <div class="hbar"><span class="hbar-fill" style="width:14%"></span></div>
+                    <span class="hbar-value">93</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Share of inquiries by requested handover window.</footer>
+            </article>
+          </div>
+        </div><!-- /.analytics-section Customer Preferences -->
+
+        <!-- ── Broker-only: Top Developers by Inquiry ── -->
+        <div class="analytics-section broker-only" data-mode="broker" hidden>
+          <div class="section-title-row">
+            <h3 class="section-title">Top Developers by Inquiry</h3>
+            <span class="phase-pill phase-broker">Broker mode</span>
+          </div>
+          <div class="widget-grid">
+            <article class="widget" data-metric="A8">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">A8</span>
+                  <h3 class="widget-title">Top developers</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-broker">Broker</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list">
+                  <li><span class="hbar-label">Palm Hills Developments</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:100%"></span></div><span class="hbar-value">287</span></li>
+                  <li><span class="hbar-label">SODIC</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:78%"></span></div><span class="hbar-value">224</span></li>
+                  <li><span class="hbar-label">Mountain View</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:64%"></span></div><span class="hbar-value">183</span></li>
+                  <li><span class="hbar-label">Emaar Misr</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:52%"></span></div><span class="hbar-value">149</span></li>
+                  <li><span class="hbar-label">Hyde Park</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:41%"></span></div><span class="hbar-value">117</span></li>
+                  <li><span class="hbar-label">Tatweer Misr</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:33%"></span></div><span class="hbar-value">95</span></li>
+                  <li><span class="hbar-label">Orascom Development</span><div class="hbar"><span class="hbar-fill hbar-fill-alt" style="width:24%"></span></div><span class="hbar-value">68</span></li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Derived from this broker's own conversations only.</footer>
+            </article>
+          </div>
+        </div><!-- /.broker-only -->
+
+      </div>
+
+      <!-- CONVERSATIONS — Subscriber Analytics: Conversation Intelligence -->
+      <div class="tab-panel" data-panel="conversations" hidden>
+
+        <!-- Section intro -->
+        <div class="section-intro">
+          <h2 class="section-heading">Conversations</h2>
+          <p class="section-sub muted">How customers are engaging — volume, timing, language, and bot containment.</p>
+        </div>
+
+        <!-- ── Top Signals ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Top Signals</h3>
+          <div class="kpi-strip">
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Total conversations</div>
+              <div class="kpi-value">3,214</div>
+              <div class="kpi-delta up">▲ 9% vs previous 30D</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Average messages per conversation</div>
+              <div class="kpi-value">14.2</div>
+              <div class="kpi-delta up">▲ 4% vs previous 30D</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Avg first response time</div>
+              <div class="kpi-value">38s</div>
+              <div class="kpi-delta down">▼ 12s vs previous 30D</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Bot containment rate</div>
+              <div class="kpi-value">72%</div>
+              <div class="kpi-delta good">2,314 conversations</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Volume & Trend ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Volume &amp; Trend</h3>
+          <div class="widget-grid grid-2-1">
+            <!-- B1 — line trend -->
+            <article class="widget" data-metric="B1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B1</span>
+                  <h3 class="widget-title">Conversations over time</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-mvp">MVP</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <svg class="line-chart" viewBox="0 0 600 220" preserveAspectRatio="none" role="img" aria-label="Daily conversations, last 30 days">
+                  <!-- grid lines -->
+                  <g class="line-grid">
+                    <line x1="0" y1="40" x2="600" y2="40" />
+                    <line x1="0" y1="90" x2="600" y2="90" />
+                    <line x1="0" y1="140" x2="600" y2="140" />
+                    <line x1="0" y1="190" x2="600" y2="190" />
+                  </g>
+                  <!-- area fill -->
+                  <path class="line-area" d="M0,160 L20,150 L40,140 L60,145 L80,120 L100,110 L120,115 L140,95 L160,100 L180,80 L200,85 L220,70 L240,75 L260,60 L280,70 L300,55 L320,65 L340,50 L360,60 L380,45 L400,55 L420,40 L440,50 L460,35 L480,45 L500,30 L520,40 L540,25 L560,35 L580,20 L600,30 L600,220 L0,220 Z" />
+                  <!-- line -->
+                  <path class="line-path" d="M0,160 L20,150 L40,140 L60,145 L80,120 L100,110 L120,115 L140,95 L160,100 L180,80 L200,85 L220,70 L240,75 L260,60 L280,70 L300,55 L320,65 L340,50 L360,60 L380,45 L400,55 L420,40 L440,50 L460,35 L480,45 L500,30 L520,40 L540,25 L560,35 L580,20 L600,30" />
+                </svg>
+                <div class="line-axis muted">
+                  <span>Mar 22</span><span>Mar 29</span><span>Apr 5</span><span>Apr 12</span><span>Apr 20</span>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Daily conversation starts · 3,214 total · peak 148 on Apr 18.</footer>
+            </article>
+
+            <!-- B2 — new vs returning (donut) -->
+            <article class="widget" data-metric="B2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B2</span>
+                  <h3 class="widget-title">New vs returning</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body donut-body donut-body-compact">
+                <div class="donut" style="--a:64;--b:100;--c:100;--d:100;">
+                  <div class="donut-center">
+                    <div class="donut-total">3,214</div>
+                    <div class="donut-label muted">customers</div>
+                  </div>
+                </div>
+                <ul class="donut-legend">
+                  <li><span class="sw sw-p1"></span>New<b>64%</b></li>
+                  <li><span class="sw sw-p2"></span>Returning<b>36%</b></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Activity Patterns ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Activity Patterns</h3>
+          <div class="widget-grid grid-2-1">
+            <article class="widget" data-metric="B5">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B5</span>
+                  <h3 class="widget-title">Activity heatmap — hour × day</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-mvp">MVP</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <div class="heatmap">
+                  <div class="heatmap-hours muted">
+                    <span>12a</span><span>3a</span><span>6a</span><span>9a</span><span>12p</span><span>3p</span><span>6p</span><span>9p</span>
+                  </div>
+                  <div class="heatmap-grid">
+                    <!-- 7 rows × 24 cols. Each cell's intensity via --v (0–4) -->
+                    <!-- Mon -->
+                    <div class="hm-row"><span class="hm-day muted">Mon</span>
+                      <i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:0"></i>
+                    </div>
+                    <!-- Tue -->
+                    <div class="hm-row"><span class="hm-day muted">Tue</span>
+                      <i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:1"></i><i style="--v:0"></i><i style="--v:0"></i>
+                    </div>
+                    <!-- Wed -->
+                    <div class="hm-row"><span class="hm-day muted">Wed</span>
+                      <i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:0"></i>
+                    </div>
+                    <!-- Thu -->
+                    <div class="hm-row"><span class="hm-day muted">Thu</span>
+                      <i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:0"></i>
+                    </div>
+                    <!-- Fri -->
+                    <div class="hm-row"><span class="hm-day muted">Fri</span>
+                      <i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:0"></i><i style="--v:0"></i>
+                    </div>
+                    <!-- Sat -->
+                    <div class="hm-row"><span class="hm-day muted">Sat</span>
+                      <i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:0"></i>
+                    </div>
+                    <!-- Sun -->
+                    <div class="hm-row"><span class="hm-day muted">Sun</span>
+                      <i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:0"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:4"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:3"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:2"></i><i style="--v:1"></i><i style="--v:1"></i><i style="--v:0"></i>
+                    </div>
+                  </div>
+                  <div class="heatmap-legend">
+                    <span class="muted">Less</span>
+                    <i style="--v:0"></i><i style="--v:1"></i><i style="--v:2"></i><i style="--v:3"></i><i style="--v:4"></i>
+                    <span class="muted">More</span>
+                  </div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Peak activity: Sunday 9am–3pm. Fridays are consistently quieter.</footer>
+            </article>
+
+            <!-- B5b — Peak Activity by Day (bar chart) -->
+            <article class="widget" data-metric="B5b">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B5·</span>
+                  <h3 class="widget-title">Peak activity by day</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="col-chart" role="img" aria-label="Conversations by day of week">
+                  <div class="col-col"><span class="col-val">412</span><span class="col-bar" style="height:72%"></span><span class="col-label">Mon</span></div>
+                  <div class="col-col"><span class="col-val">446</span><span class="col-bar" style="height:78%"></span><span class="col-label">Tue</span></div>
+                  <div class="col-col"><span class="col-val">488</span><span class="col-bar" style="height:85%"></span><span class="col-label">Wed</span></div>
+                  <div class="col-col"><span class="col-val">502</span><span class="col-bar" style="height:88%"></span><span class="col-label">Thu</span></div>
+                  <div class="col-col"><span class="col-val">241</span><span class="col-bar" style="height:42%"></span><span class="col-label">Fri</span></div>
+                  <div class="col-col"><span class="col-val">530</span><span class="col-bar" style="height:93%"></span><span class="col-label">Sat</span></div>
+                  <div class="col-col is-peak"><span class="col-val">595</span><span class="col-bar" style="height:100%"></span><span class="col-label">Sun</span></div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Sunday is the busiest day · Friday the quietest.</footer>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Language ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Language</h3>
+          <div class="widget-grid">
+            <!-- B6 — language split (stacked bar) -->
+            <article class="widget" data-metric="B6">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B6</span>
+                  <h3 class="widget-title">Language split</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body stacked-body">
+                <div class="stacked-scale">
+                  <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                </div>
+                <div class="stacked-bar">
+                  <span class="stacked-seg seg-1" style="width:58%">58%</span>
+                  <span class="stacked-seg seg-2" style="width:27%">27%</span>
+                  <span class="stacked-seg seg-3" style="width:15%">15%</span>
+                </div>
+                <ul class="stacked-legend">
+                  <li><span class="sw sw-s1"></span>Arabic<b>1,864</b></li>
+                  <li><span class="sw sw-s2"></span>English<b>868</b></li>
+                  <li><span class="sw sw-s3"></span>Mixed / Franco<b>482</b></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Conversation Drop-off ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Conversation Drop-off</h3>
+          <div class="widget-grid">
+            <article class="widget" data-metric="B10">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B10</span>
+                  <h3 class="widget-title">Where customers stop responding</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-mvp">MVP</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <div class="col-chart col-chart-wide" role="img" aria-label="Conversation drop-off by stage">
+                  <div class="col-col is-peak"><span class="col-val">38%</span><span class="col-bar" style="height:100%"></span><span class="col-label">Opening<br><span class="muted col-sublabel">No reply after greet</span></span></div>
+                  <div class="col-col"><span class="col-val">24%</span><span class="col-bar" style="height:63%"></span><span class="col-label">Early<br><span class="muted col-sublabel">1–3 messages</span></span></div>
+                  <div class="col-col"><span class="col-val">19%</span><span class="col-bar" style="height:50%"></span><span class="col-label">Mid<br><span class="muted col-sublabel">4–10 messages</span></span></div>
+                  <div class="col-col"><span class="col-val">12%</span><span class="col-bar" style="height:32%"></span><span class="col-label">Late<br><span class="muted col-sublabel">11–20 messages</span></span></div>
+                  <div class="col-col"><span class="col-val">7%</span><span class="col-bar" style="height:18%"></span><span class="col-label">Near close<br><span class="muted col-sublabel">21+ messages</span></span></div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Most drop-off happens at the opening stage — customers often don't reply to the first bot greeting.</footer>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Bot Performance ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Bot Performance</h3>
+          <div class="widget-grid grid-2">
+            <!-- B7 — first response time distribution (moved from Language group) -->
+            <article class="widget" data-metric="B7">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B7</span>
+                  <h3 class="widget-title">First response time</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="col-chart" role="img" aria-label="First response time distribution">
+                  <div class="col-col is-peak"><span class="col-val">47%</span><span class="col-bar" style="height:100%"></span><span class="col-label">&lt; 30s</span></div>
+                  <div class="col-col"><span class="col-val">28%</span><span class="col-bar" style="height:60%"></span><span class="col-label">30–60s</span></div>
+                  <div class="col-col"><span class="col-val">14%</span><span class="col-bar" style="height:30%"></span><span class="col-label">1–5m</span></div>
+                  <div class="col-col"><span class="col-val">7%</span><span class="col-bar" style="height:15%"></span><span class="col-label">5–30m</span></div>
+                  <div class="col-col"><span class="col-val">4%</span><span class="col-bar" style="height:9%"></span><span class="col-label">&gt; 30m</span></div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">75% of first responses within 60 seconds.</footer>
+            </article>
+
+            <!-- B8 — containment rate (rings) -->
+            <article class="widget" data-metric="B8">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B8</span>
+                  <h3 class="widget-title">Bot containment rate</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body rings-body rings-body-stat">
+                <div class="ring-card">
+                  <div class="ring" style="--pct:72;--ring-color:var(--brand-primary-50);">
+                    <div class="ring-pct">72%</div>
+                  </div>
+                  <div class="ring-label">Bot-only</div>
+                  <div class="ring-sub muted">2,314 conversations</div>
+                </div>
+                <div class="ring-card">
+                  <div class="ring" style="--pct:19;--ring-color:var(--brand-secondary-50);">
+                    <div class="ring-pct">19%</div>
+                  </div>
+                  <div class="ring-label">Handed off</div>
+                  <div class="ring-sub muted">610 conversations</div>
+                </div>
+                <div class="ring-card">
+                  <div class="ring" style="--pct:9;--ring-color:var(--brand-tertiary-50);">
+                    <div class="ring-pct">9%</div>
+                  </div>
+                  <div class="ring-label">Abandoned</div>
+                  <div class="ring-sub muted">290 conversations</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- B9 — handoff reasons (Phase 2 / Non-MVP) -->
+          <div class="widget-grid" style="margin-top: var(--sp-4);">
+            <article class="widget" data-metric="B9">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">B9</span>
+                  <h3 class="widget-title">Handoff reasons</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-p2">Future · Non-MVP</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list hbar-list-compact">
+                  <li><span class="hbar-label">Price negotiation</span><div class="hbar"><span class="hbar-fill" style="width:100%"></span></div><span class="hbar-value">214</span></li>
+                  <li><span class="hbar-label">Custom payment plan</span><div class="hbar"><span class="hbar-fill" style="width:72%"></span></div><span class="hbar-value">154</span></li>
+                  <li><span class="hbar-label">Unit availability</span><div class="hbar"><span class="hbar-fill" style="width:55%"></span></div><span class="hbar-value">118</span></li>
+                  <li><span class="hbar-label">Site visit request</span><div class="hbar"><span class="hbar-fill" style="width:39%"></span></div><span class="hbar-value">84</span></li>
+                  <li><span class="hbar-label">Complaint / escalation</span><div class="hbar"><span class="hbar-fill" style="width:19%"></span></div><span class="hbar-value">40</span></li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Reason tagging is planned for a future release — values shown are illustrative.</footer>
+            </article>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FUNNEL — Subscriber Analytics: Conversion Funnel -->
+      <div class="tab-panel" data-panel="funnel" hidden>
+
+        <!-- Section intro -->
+        <div class="section-intro">
+          <h2 class="section-heading">Conversion Funnel</h2>
+          <p class="section-sub muted">Pipeline stage counts, transition rates, and time-in-stage.</p>
+        </div>
+
+        <!-- ── Top Signals ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Top Signals</h3>
+          <div class="kpi-strip">
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Total conversations</div>
+              <div class="kpi-value">3,214</div>
+              <div class="kpi-delta up">▲ 9% vs previous 30D</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Engaged rate</div>
+              <div class="kpi-value">35%</div>
+              <div class="kpi-delta up">▲ 2pp vs previous 30D</div>
+            </div>
+            <div class="kpi-card kpi-signal">
+              <div class="kpi-label">Conversion rate</div>
+              <div class="kpi-value">6.4%</div>
+              <div class="kpi-delta up">▲ 0.8pp vs previous 30D</div>
+            </div>
+            <div class="kpi-card kpi-signal kpi-conditional" data-requires-filter="returning" hidden>
+              <div class="kpi-label">
+                Re-engagement rate
+                <span class="kpi-filter-tag">Returning users only</span>
+              </div>
+              <div class="kpi-value">22%</div>
+              <div class="kpi-delta good">Reactivated within 14 days</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Pipeline Funnel ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Pipeline Funnel</h3>
+          <div class="widget-grid grid-2-1">
+            <!-- C1 — funnel visual -->
+            <article class="widget" data-metric="C1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">C1</span>
+                  <h3 class="widget-title">Pipeline stage counts</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-mvp">MVP</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <ul class="funnel">
+                  <li class="funnel-row" style="--w:100;">
+                    <span class="funnel-label">New</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">3,214</span>
+                  </li>
+                  <li class="funnel-conv" aria-hidden="true">
+                    <span class="funnel-conv-label">Conversion</span>
+                    <span class="funnel-conv-pct">63%</span>
+                  </li>
+                  <li class="funnel-row" style="--w:63;">
+                    <span class="funnel-label">Active</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">2,024</span>
+                  </li>
+                  <li class="funnel-conv" aria-hidden="true">
+                    <span class="funnel-conv-label">Conversion</span>
+                    <span class="funnel-conv-pct">55%</span>
+                  </li>
+                  <li class="funnel-row" style="--w:35;">
+                    <span class="funnel-label">Engaged</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">1,112</span>
+                  </li>
+                  <li class="funnel-conv funnel-conv-drop" aria-hidden="true">
+                    <span class="funnel-conv-label">Drop to inactive</span>
+                    <span class="funnel-conv-pct">37%</span>
+                  </li>
+                  <li class="funnel-row funnel-row-inactive" style="--w:13;">
+                    <span class="funnel-label">In-Active</span>
+                    <span class="funnel-bar"><span class="funnel-fill"></span></span>
+                    <span class="funnel-value">412</span>
+                  </li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Click a stage to filter the Conversations list by that stage.</footer>
+            </article>
+
+            <!-- C2 — stage-to-stage conversion -->
+            <article class="widget" data-metric="C2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">C2</span>
+                  <h3 class="widget-title">Stage conversion rates</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="hbar-list hbar-list-compact">
+                  <li><span class="hbar-label">New → Active</span><div class="hbar"><span class="hbar-fill" style="width:63%"></span></div><span class="hbar-value">63%</span></li>
+                  <li><span class="hbar-label">Active → Engaged</span><div class="hbar"><span class="hbar-fill" style="width:55%"></span></div><span class="hbar-value">55%</span></li>
+                  <li><span class="hbar-label">Engaged → In-Active</span><div class="hbar"><span class="hbar-fill" style="width:37%"></span></div><span class="hbar-value">37%</span></li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Biggest drop-off: New → Active.</footer>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Velocity &amp; Drop-off ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Velocity &amp; Drop-off</h3>
+          <div class="widget-grid grid-2">
+            <!-- C3 — avg time in stage -->
+            <article class="widget" data-metric="C3">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">C3</span>
+                  <h3 class="widget-title">Average time per stage</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="col-chart" role="img" aria-label="Average days spent in each stage">
+                  <div class="col-col"><span class="col-val">1d</span><span class="col-bar" style="height:5%"></span><span class="col-label">New</span></div>
+                  <div class="col-col"><span class="col-val">4d</span><span class="col-bar" style="height:20%"></span><span class="col-label">Active</span></div>
+                  <div class="col-col"><span class="col-val">7d</span><span class="col-bar" style="height:35%"></span><span class="col-label">Engaged</span></div>
+                  <div class="col-col is-peak"><span class="col-val">21d</span><span class="col-bar" style="height:100%"></span><span class="col-label">In-Active</span></div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Conversations stay In-Active on average 21 days before auto-close.</footer>
+            </article>
+
+            <!-- C5 — biggest drop-off points -->
+            <article class="widget" data-metric="C5">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">C5</span>
+                  <h3 class="widget-title">Biggest drop-off points</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <ul class="dist-list">
+                  <li>
+                    <div class="dist-row"><span class="dist-label">New → Active</span><span class="dist-value">1,190 dropped (37%)</span></div>
+                    <div class="dist-bar"><span class="dist-fill" style="width:100%"></span></div>
+                  </li>
+                  <li>
+                    <div class="dist-row"><span class="dist-label">Active → Engaged</span><span class="dist-value">912 dropped (45%)</span></div>
+                    <div class="dist-bar"><span class="dist-fill" style="width:77%"></span></div>
+                  </li>
+                  <li>
+                    <div class="dist-row"><span class="dist-label">Engaged → In-Active</span><span class="dist-value">412 moved to inactive (37%)</span></div>
+                    <div class="dist-bar"><span class="dist-fill" style="width:35%"></span></div>
+                  </li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Biggest leak: New → Active. Most leads go silent right after first reply.</footer>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Broker-only: Commission Tracked (separate metric, not funnel) ── -->
+        <div class="analytics-section broker-only" hidden>
+          <div class="section-title-row">
+            <h3 class="section-title">Broker Metric</h3>
+            <span class="phase-pill phase-broker">Broker mode</span>
+          </div>
+          <div class="widget-grid grid-1">
+            <article class="widget widget-metric" data-metric="C7">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">C7</span>
+                  <h3 class="widget-title">Commission tracked</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-broker">Broker</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <div class="metric-hero">
+                  <div class="metric-hero-value">EGP 7.1M</div>
+                  <div class="metric-hero-sub muted">Tracked commission on closed deals this period</div>
+                  <div class="metric-hero-delta positive">▲ 12.4% vs previous period</div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Standalone metric — not part of the conversation funnel.</footer>
+            </article>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-panel" data-panel="bot" hidden>
+
+        <!-- ── Top Signals (KPIs) ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Top Signals</h3>
+          <div class="kpi-strip">
+            <article class="kpi-card" data-metric="D2">
+              <div class="kpi-head">
+                <span class="metric-id">D2</span>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </div>
+              <div class="kpi-label">Credits remaining</div>
+              <div class="kpi-value">184,320</div>
+              <div class="kpi-delta muted">46% of allocation</div>
+            </article>
+            <article class="kpi-card" data-metric="D1">
+              <div class="kpi-head">
+                <span class="metric-id">D1</span>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </div>
+              <div class="kpi-label">Credits consumed</div>
+              <div class="kpi-value">215,680</div>
+              <div class="kpi-delta positive">▲ 8.2% vs previous period</div>
+            </article>
+            <article class="kpi-card" data-metric="D3">
+              <div class="kpi-head">
+                <span class="metric-id">D3</span>
+                <span class="phase-pill phase-data">MVP-data</span>
+              </div>
+              <div class="kpi-label">Avg credits per conversation</div>
+              <div class="kpi-value">67.1</div>
+              <div class="kpi-delta negative">▼ 3.4% vs previous period</div>
+            </article>
+            <article class="kpi-card" data-metric="D4">
+              <div class="kpi-head">
+                <span class="metric-id">D4</span>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </div>
+              <div class="kpi-label">Fallback / dead-end rate</div>
+              <div class="kpi-value">4.6%</div>
+              <div class="kpi-delta positive">▼ 1.2pp vs previous period</div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Usage & Trend ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Usage &amp; Trend</h3>
+          <div class="widget-grid grid-2-1">
+            <!-- D1 — credits consumed trend line -->
+            <article class="widget" data-metric="D1">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">D1</span>
+                  <h3 class="widget-title">AI credits consumed</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <svg class="line-chart" viewBox="0 0 600 200" role="img" aria-label="Daily AI credits consumed trend">
+                  <defs>
+                    <linearGradient id="creditFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--brand-primary)" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="var(--brand-primary)" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <polyline class="line-area" fill="url(#creditFill)" stroke="none"
+                    points="0,200 0,140 50,120 100,132 150,108 200,96 250,110 300,84 350,72 400,92 450,64 500,56 550,68 600,44 600,200"/>
+                  <polyline class="line-path" fill="none"
+                    points="0,140 50,120 100,132 150,108 200,96 250,110 300,84 350,72 400,92 450,64 500,56 550,68 600,44"/>
+                </svg>
+                <ul class="line-axis muted">
+                  <li>Mar 22</li><li>Mar 29</li><li>Apr 5</li><li>Apr 12</li><li>Apr 19</li>
+                </ul>
+              </div>
+              <footer class="widget-foot muted">Daily consumption. Peak 18,420 credits on Apr 18.</footer>
+            </article>
+
+            <!-- D2 — credits remaining gauge -->
+            <article class="widget" data-metric="D2">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">D2</span>
+                  <h3 class="widget-title">Credits remaining</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="remaining-card">
+                  <div class="ring" style="--pct:46; --ring-color: var(--brand-primary);">
+                    <div class="ring-center">
+                      <div class="ring-value">46%</div>
+                    </div>
+                  </div>
+                  <div class="remaining-meta">
+                    <div class="remaining-value">184,320</div>
+                    <div class="remaining-sub muted">credits remaining · 46% of allocation</div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Cost Efficiency ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Cost Efficiency</h3>
+          <div class="widget-grid grid-2">
+            <!-- D3 — avg credits per conversation histogram -->
+            <article class="widget" data-metric="D3">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">D3</span>
+                  <h3 class="widget-title">Avg credits per conversation</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-data">MVP-data</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <div class="metric-lede">
+                  <div class="metric-lede-value">67.1</div>
+                  <div class="metric-lede-sub muted">avg credits per conversation</div>
+                </div>
+                <div class="col-chart col-chart-compact" role="img" aria-label="Credits per conversation distribution">
+                  <div class="col-col"><span class="col-val">412</span><span class="col-bar" style="height:34%"></span><span class="col-label">Low<br><small>&lt; 30</small></span></div>
+                  <div class="col-col is-peak"><span class="col-val">2,190</span><span class="col-bar" style="height:100%"></span><span class="col-label">Typical<br><small>30–100</small></span></div>
+                  <div class="col-col"><span class="col-val">612</span><span class="col-bar" style="height:52%"></span><span class="col-label">High<br><small>100+</small></span></div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Most conversations fall in the Typical range (30–100 credits).</footer>
+            </article>
+
+            <!-- D5 — per-conversation token cap hit rate -->
+            <article class="widget" data-metric="D5">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">D5</span>
+                  <h3 class="widget-title">Token cap hit rate</h3>
+                </div>
+                <div class="widget-actions">
+                  <span class="phase-pill phase-data">MVP-data</span>
+                  <button class="widget-menu" aria-label="Options">⋯</button>
+                </div>
+              </header>
+              <div class="widget-body">
+                <div class="pct-metric">
+                  <div class="pct-metric-value">2.8%</div>
+                  <div class="pct-metric-bar" role="img" aria-label="2.8% of conversations hit the token cap">
+                    <span class="pct-metric-fill" style="width:2.8%"></span>
+                  </div>
+                  <div class="pct-metric-sub muted">90 of 3,214 conversations</div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Share of conversations that hit the per-conversation token cap.</footer>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Reliability & Projection ── -->
+        <div class="analytics-section">
+          <h3 class="section-title">Reliability</h3>
+          <div class="widget-grid grid-1">
+            <!-- D4 — fallback / dead-end rate -->
+            <article class="widget" data-metric="D4">
+              <header class="widget-head">
+                <div>
+                  <span class="metric-id">D4</span>
+                  <h3 class="widget-title">Fallback / dead-end rate</h3>
+                </div>
+                <span class="phase-pill phase-mvp">MVP</span>
+              </header>
+              <div class="widget-body">
+                <div class="pct-metric">
+                  <div class="pct-metric-value">4.6%</div>
+                  <div class="pct-metric-bar" role="img" aria-label="4.6% of conversations hit the dead-end template">
+                    <span class="pct-metric-fill" style="width:4.6%"></span>
+                  </div>
+                  <div class="pct-metric-sub muted">148 of 3,214 conversations</div>
+                </div>
+              </div>
+              <footer class="widget-foot muted">Share of conversations that reached the dead-end template.</footer>
+            </article>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
