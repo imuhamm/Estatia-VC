@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estatia — Conversation</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="detail-body">
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">e</div>
+      <div class="brand-name">estatia</div>
+    </div>
+    <nav class="nav">
+      <a class="nav-item" href="../dashboard/"><span class="ico">▦</span> Dashboard</a>
+      <a class="nav-item active" href="../conversations/"><span class="ico">◌</span> Conversations</a>
+      <a class="nav-item"><span class="ico">⇋</span> Pipeline</a>
+      <a class="nav-item"><span class="ico">◫</span> Inventory</a>
+      <a class="nav-item" href="../customers/"><span class="ico">☺</span> Customers</a>
+      <a class="nav-item" href="../analytics/"><span class="ico">◎</span> Analytics</a>
+      <a class="nav-item"><span class="ico">◉</span> Bot Config</a>
+      <a class="nav-item"><span class="ico">⌥</span> Team</a>
+      <a class="nav-item"><span class="ico">◊</span> Billing &amp; Credits</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="plan-card">
+        <div class="plan-title">Growth Plan</div>
+        <div class="plan-sub">7 days left · Free trial</div>
+        <button class="btn btn-primary btn-sm">Upgrade</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="account">
+          <div class="account-name" data-name-developer="Palm Hills Developments" data-name-broker="Nile Realty Brokers">Palm Hills Developments</div>
+          <div class="mode-toggle" role="tablist" aria-label="Account mode">
+            <button class="mode-btn is-active" data-mode="developer" role="tab" aria-selected="true">Developer</button>
+            <button class="mode-btn" data-mode="broker" role="tab" aria-selected="false">Broker</button>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="search"><input type="search" placeholder="Search…" /></div>
+        <button class="icon-btn" aria-label="Notifications">◔<span class="dot"></span></button>
+        <div class="avatar">MA</div>
+      </div>
+    </header>
+
+    <!-- Breadcrumb + back -->
+    <div class="detail-breadcrumb">
+      <a class="btn btn-ghost btn-sm back-btn" href="index.html">← Back to Conversations</a>
+      <nav class="breadcrumb muted" aria-label="Breadcrumb">
+        <a href="index.html">Conversations</a>
+        <span>/</span>
+        <span class="current" data-field="name">Ahmed Hosny</span>
+      </nav>
+    </div>
+
+    <!-- Detail header (customer + state + actions) -->
+    <section class="detail-header">
+      <div class="dh-left">
+        <div class="dh-avatar" data-field="initials">AH</div>
+        <div class="dh-identity">
+          <div class="dh-name-row">
+            <h1 class="dh-name" data-field="name">Ahmed Hosny</h1>
+            <span class="conv-badge badge-returning">Returning</span>
+            <span class="conv-badge badge-lang-ar">EN</span>
+          </div>
+          <div class="dh-sub muted">
+            <span data-field="phone">+20 12 9876 5432</span>
+            <span class="dot-sep">·</span>
+            <span>English</span>
+            <span class="dot-sep">·</span>
+            <span>First contact: Jan 14, 2026</span>
+            <span class="dot-sep">·</span>
+            <span>3 sessions · 42 total msgs</span>
+          </div>
+        </div>
+      </div>
+      <div class="dh-right">
+        <div class="dh-stateline dh-stateline-3ax">
+          <div class="state-axis">
+            <span class="axis-label">Stage</span>
+            <span class="stage-pill stage-pill-active">Active</span>
+          </div>
+          <span class="axis-sep" aria-hidden="true">·</span>
+          <div class="state-axis">
+            <span class="axis-label">AI</span>
+            <span class="ai-state-pill ai-state-paused"><span class="ai-dot ai-dot-paused"></span>AI paused</span>
+          </div>
+          <span class="axis-sep" aria-hidden="true">·</span>
+          <div class="state-axis">
+            <span class="axis-label">Assignment</span>
+            <span class="assign-pill assign-assigned"><span class="assignee-avatar">MA</span>Menna A.</span>
+          </div>
+        </div>
+        <div class="dh-actions">
+          <button class="btn btn-primary btn-sm" id="aiToggle">Resume AI</button>
+          <button class="btn btn-secondary btn-sm">Assign…</button>
+          <button class="btn btn-ghost btn-sm">Add tag</button>
+          <button class="btn btn-ghost btn-sm more-btn" aria-haspopup="menu">⋯</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI lock banner (E20) -->
+    <div class="lock-banner" role="status">
+      <span class="lock-ico" aria-hidden="true">❚❚</span>
+      <div class="lock-text">
+        <b>AI is paused.</b> Menna A. is replying via WhatsApp. AI will resume 5 minutes after the last human reply, or click <b>Resume AI</b> to resume now.
+      </div>
+    </div>
+
+    <!-- Detail split: transcript + sidebar -->
+    <section class="detail-split">
+
+      <!-- ── Transcript column ── -->
+      <div class="transcript-col">
+
+        <!-- Session: current (within 24h window) -->
+        <div class="session-divider">
+          <div class="session-line"></div>
+          <div class="session-pill">
+            <span>Current session · within 24h WhatsApp window</span>
+            <span class="session-meta">Apr 21, 2026 · started 14:02 · 8 msgs · 0 new credits</span>
+          </div>
+          <div class="session-line"></div>
+        </div>
+
+        <!-- Msg: customer -->
+        <div class="msg msg-in">
+          <div class="msg-body">
+            <div class="msg-bubble">
+              Hi, do you have 3BR apartments in Palm Hills West under 5M?
+            </div>
+            <div class="msg-meta muted"><span>14:02</span></div>
+          </div>
+        </div>
+
+        <!-- Msg: bot -->
+        <div class="msg msg-out msg-bot">
+          <div class="msg-body">
+            <div class="msg-author"><span class="ai-glyph">◎</span> Bot · <span class="muted">AI reply</span></div>
+            <div class="msg-bubble">
+              Yes — I found 3 matching apartments in Palm Hills West. Here are the top options:<br><br>
+              <b>Option 1 —</b> 3BR · 165 sqm · Floor 4 · EGP 4,650,000<br>
+              <b>Option 2 —</b> 3BR · 158 sqm · Floor 2 · EGP 4,380,000<br>
+              <b>Option 3 —</b> 3BR · 172 sqm · Floor 6 · EGP 4,920,000<br><br>
+              Would you like more details on any of these, or the payment plan options?
+            </div>
+            <div class="msg-meta muted">
+              <span>14:02</span>
+              <span class="dot-sep">·</span>
+              <span>Delivered ✓✓</span>
+              <span class="dot-sep">·</span>
+              <span class="credit-cost">48 credits</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- System event: tags extracted -->
+        <div class="sys-event">
+          <span class="sys-ico">✎</span>
+          <span>Auto-tags extracted: <b>Palm Hills West</b>, <b>Apartment</b>, <b>3BR</b>, <b>≤ 5M</b></span>
+          <span class="sys-time muted">14:02</span>
+        </div>
+
+        <!-- Msg: customer -->
+        <div class="msg msg-in">
+          <div class="msg-body">
+            <div class="msg-bubble">Option 2 sounds interesting. What's the payment plan?</div>
+            <div class="msg-meta muted"><span>14:05</span></div>
+          </div>
+        </div>
+
+        <!-- Msg: bot -->
+        <div class="msg msg-out msg-bot">
+          <div class="msg-body">
+            <div class="msg-author"><span class="ai-glyph">◎</span> Bot · <span class="muted">AI reply</span></div>
+            <div class="msg-bubble">
+              Here are the payment plan options for Option 2:<br><br>
+              <b>Plan A —</b> 10% DP · 8-year installments<br>
+              &nbsp;&nbsp;&nbsp;Down payment: EGP 438,000<br>
+              &nbsp;&nbsp;&nbsp;Monthly: EGP 41,062 / 96 months<br><br>
+              <b>Plan B —</b> 20% DP · 10-year installments<br>
+              &nbsp;&nbsp;&nbsp;Down payment: EGP 876,000<br>
+              &nbsp;&nbsp;&nbsp;Monthly: EGP 29,200 / 120 months<br><br>
+              Want me to compare these side-by-side with Options 1 and 3?
+            </div>
+            <div class="msg-meta muted">
+              <span>14:05</span>
+              <span class="dot-sep">·</span>
+              <span>Delivered ✓✓</span>
+              <span class="dot-sep">·</span>
+              <span class="credit-cost">64 credits</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inventory breadcrumb (E21–E25) -->
+        <div class="inv-breadcrumb">
+          <span class="inv-ico">⟳</span>
+          <span>Inventory updated at 14:07 — payment plan for <b>Palm Hills West · Unit D2A8-02-0158</b> was revised. Next reply will use the new terms.</span>
+        </div>
+
+        <!-- Msg: customer -->
+        <div class="msg msg-in">
+          <div class="msg-body">
+            <div class="msg-bubble">Actually I'd like to speak to someone. Can we book a visit this week?</div>
+            <div class="msg-meta muted"><span>14:09</span></div>
+          </div>
+        </div>
+
+        <!-- System event: trigger fired (Flow 6.1) -->
+        <div class="sys-event sys-event-trigger">
+          <span class="sys-ico">⚑</span>
+          <span>Sales-rep trigger fired: <b>Ready to visit</b> → Flow 6 (Handoff)</span>
+          <span class="sys-time muted">14:09</span>
+        </div>
+
+        <!-- Msg: bot, template -->
+        <div class="msg msg-out msg-bot">
+          <div class="msg-body">
+            <div class="msg-author">
+              <span class="ai-glyph">◎</span> Bot · <span class="muted">Handoff template</span>
+              <span class="tpl-badge">Template</span>
+            </div>
+            <div class="msg-bubble">
+              A team member will contact you within 1 business day, or you can book a meeting via <a href="#" class="link">calendly.com/palmhills-sales</a>.
+            </div>
+            <div class="msg-meta muted">
+              <span>14:09</span>
+              <span class="dot-sep">·</span>
+              <span>Delivered ✓✓</span>
+              <span class="dot-sep">·</span>
+              <span class="credit-cost credit-free">0 credits · static template</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- System event: stage advance -->
+        <div class="sys-event">
+          <span class="sys-ico">▲</span>
+          <span>Pipeline stage advanced to <b>Engaged</b></span>
+          <span class="sys-time muted">14:09</span>
+        </div>
+
+        <!-- System event: assignment -->
+        <div class="sys-event">
+          <span class="sys-ico">◷</span>
+          <span>Assigned to <b>Menna A.</b> via routing rule "EN · Palm Hills West"</span>
+          <span class="sys-time muted">14:09</span>
+        </div>
+
+        <!-- System event: AI paused -->
+        <div class="sys-event sys-event-pause">
+          <span class="sys-ico">❚❚</span>
+          <span>AI paused by <b>Menna A.</b></span>
+          <span class="sys-time muted">14:11</span>
+        </div>
+
+        <!-- Msg: human agent (via WhatsApp device) -->
+        <div class="msg msg-out msg-agent">
+          <div class="msg-body">
+            <div class="msg-author"><span class="agent-glyph">◆</span> Menna A. · <span class="muted">via WhatsApp</span></div>
+            <div class="msg-bubble">
+              Hi Ahmed! I'd be glad to arrange a visit. Would Thursday 3 pm or Saturday 11 am work better for you?
+            </div>
+            <div class="msg-meta muted">
+              <span>14:12</span>
+              <span class="dot-sep">·</span>
+              <span>Delivered ✓✓</span>
+              <span class="dot-sep">·</span>
+              <span class="credit-cost credit-free">0 credits · human reply</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Previous session divider (older thread) ── -->
+        <div class="session-divider collapsed" aria-expanded="false">
+          <div class="session-line"></div>
+          <button class="session-toggle">▸ Previous session · Jan 14 · 24 msgs · 312 credits</button>
+          <div class="session-line"></div>
+        </div>
+
+      </div>
+
+      <!-- ── Sidebar ── -->
+      <aside class="detail-sidebar">
+
+        <!-- Quick-actions / state — 3 axes clearly separated -->
+        <section class="side-card">
+          <h3 class="side-title">State</h3>
+          <ul class="side-list side-list-state">
+            <li>
+              <span class="muted">Pipeline stage</span>
+              <span><span class="stage-pill stage-pill-active">Active</span></span>
+            </li>
+            <li>
+              <span class="muted">AI state</span>
+              <span><span class="ai-state-pill ai-state-paused"><span class="ai-dot ai-dot-paused"></span>AI paused</span></span>
+            </li>
+            <li>
+              <span class="muted">Assignment</span>
+              <span><span class="assign-pill assign-assigned"><span class="assignee-avatar">MA</span>Menna A.</span></span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Context (not state) -->
+        <section class="side-card">
+          <h3 class="side-title">Context</h3>
+          <ul class="side-list">
+            <li><span class="muted">Trigger</span><span>Ready to visit</span></li>
+            <li><span class="muted">Language</span><span>English</span></li>
+            <li><span class="muted">First contact</span><span>Jan 14, 2026</span></li>
+          </ul>
+        </section>
+
+        <!-- Tags -->
+        <section class="side-card">
+          <div class="side-head">
+            <h3 class="side-title">Tags</h3>
+            <button class="btn btn-ghost btn-xs">Edit</button>
+          </div>
+          <div class="tag-group">
+            <div class="tag-group-label muted">Area</div>
+            <div class="tag-row">
+              <span class="tag-chip">New Cairo</span>
+              <span class="tag-chip">Palm Hills West</span>
+            </div>
+          </div>
+          <div class="tag-group">
+            <div class="tag-group-label muted">Property</div>
+            <div class="tag-row">
+              <span class="tag-chip">Apartment</span>
+              <span class="tag-chip">3BR</span>
+              <span class="tag-chip">165 sqm</span>
+            </div>
+          </div>
+          <div class="tag-group">
+            <div class="tag-group-label muted">Budget &amp; intent</div>
+            <div class="tag-row">
+              <span class="tag-chip">≤ 5M EGP</span>
+              <span class="tag-chip">Investment</span>
+              <span class="tag-chip manual-tag" title="Added manually — auto-tagging won't overwrite">Manual</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI summary -->
+        <section class="side-card">
+          <div class="side-head">
+            <h3 class="side-title">AI summary</h3>
+            <span class="muted ai-summary-ts">Refreshed 2m ago</span>
+          </div>
+          <p class="ai-summary">
+            Customer is an investor comparing 3BR apartments in Palm Hills West within a 5M EGP budget. Asked about payment plans for Option 2 (EGP 4.38M, Plan B seems preferred). Requested to speak to a human to book a visit this week. Engaged pipeline stage reached at 14:09 via "Ready to visit" trigger.
+          </p>
+        </section>
+
+        <!-- Credits / session metrics -->
+        <section class="side-card">
+          <h3 class="side-title">This conversation</h3>
+          <ul class="side-list">
+            <li><span class="muted">Total messages</span><span><b>42</b></span></li>
+            <li><span class="muted">Sessions</span><span><b>3</b></span></li>
+            <li><span class="muted">Credits this session</span><span><b>112</b></span></li>
+            <li><span class="muted">Lifetime credits</span><span><b>487</b></span></li>
+            <li><span class="muted">Avg response time</span><span><b>4.2s</b></span></li>
+          </ul>
+        </section>
+
+        <!-- Pending actions -->
+        <section class="side-card">
+          <h3 class="side-title">Pending actions</h3>
+          <ul class="action-list">
+            <li class="action-open">
+              <span class="action-dot"></span>
+              <div>
+                <div class="action-title">Confirm visit time</div>
+                <div class="action-sub muted">Waiting on customer reply</div>
+              </div>
+            </li>
+            <li class="action-open">
+              <span class="action-dot"></span>
+              <div>
+                <div class="action-title">Share portfolio PDF</div>
+                <div class="action-sub muted">Palm Hills West brochure</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Danger zone -->
+        <section class="side-card side-card-danger">
+          <h3 class="side-title">More</h3>
+          <div class="danger-actions">
+            <button class="btn btn-ghost btn-sm">Move to In-Active</button>
+            <button class="btn btn-ghost btn-sm danger">Flag as fraud</button>
+          </div>
+        </section>
+
+      </aside>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

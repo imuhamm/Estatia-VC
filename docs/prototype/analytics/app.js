@@ -20,6 +20,15 @@
     });
   });
 
+  // Overview → deep-link into a tab via "Open X →" links
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-tab-link]");
+    if (!link) return;
+    e.preventDefault();
+    activate(link.dataset.tabLink);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
   // Range-button toggle within filter bar
   document.querySelectorAll(".filter-range .range-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -55,4 +64,17 @@
     e.preventDefault();
     setMode(btn.dataset.mode);
   });
+
+  // Returning-users filter → reveals KPI cards gated on it
+  const returningToggle = document.getElementById("filter-returning");
+  if (returningToggle) {
+    returningToggle.addEventListener("change", () => {
+      document
+        .querySelectorAll('[data-requires-filter="returning"]')
+        .forEach((el) => {
+          if (returningToggle.checked) el.removeAttribute("hidden");
+          else el.setAttribute("hidden", "");
+        });
+    });
+  }
 })();
